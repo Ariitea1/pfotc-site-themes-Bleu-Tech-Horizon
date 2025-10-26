@@ -5,8 +5,7 @@ import Footer from "../components/Footer";
 
 export const metadata = {
   title: "PFOTC – Pacific Flight Operations & Training Center",
-  description:
-    "Expertise, formation et innovation au service des opérations aériennes.",
+  description: "Expertise, formation et innovation au service des opérations aériennes.",
   icons: {
     icon: [
       { url: "/favicon_transparent.png", type: "image/png" },
@@ -20,15 +19,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body
-        className="relative overflow-x-hidden bg-[#0b1220] text-white 
-                   bg-[url('/background_horizon.png')] bg-cover bg-center bg-no-repeat"
-      >
-        <div className="relative z-10 min-h-screen">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
+      {/* 👉 Applique l'image de fond via la classe body-horizon */}
+      <body className="body-horizon">
+        {/* Enlève les halos/overlays qui masquent l'image */}
+        {/* <div className="halo" /> */}
+        {/* <div className="aura" /> */}
+
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
