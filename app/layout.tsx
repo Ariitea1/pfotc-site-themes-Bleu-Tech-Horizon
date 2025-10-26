@@ -21,22 +21,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body className="relative overflow-x-hidden bg-[#0b1220] text-white">
-        {/* 🌌 Halo bleu principal (effet terrestre diffus) */}
+        {/* 🌌 Halo bleu principal */}
         <div
           className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[180%] h-[600px]
-                     bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.45)_0%,rgba(0,120,255,0.25)_40%,rgba(0,40,80,0.1)_70%,transparent_90%)]
+                     bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.4)_0%,rgba(0,120,255,0.25)_40%,rgba(0,40,80,0.1)_70%,transparent_90%)]
                      blur-[120px] opacity-80 rounded-full pointer-events-none z-[0]"
         ></div>
 
-        {/* ⚪ Liseré lumineux net – effet horizon */}
+        {/* ⚪ Liseré horizon lumineux net */}
         <div
-          className="absolute bottom-[-5px] left-0 w-full h-[4px]
+          className="absolute bottom-0 left-0 w-full h-[3px]
                      bg-gradient-to-r from-transparent via-white to-transparent
-                     opacity-70 blur-[2px] z-[2]"
+                     opacity-80 blur-[0.5px] z-[50]"
         ></div>
 
         {/* Contenu principal */}
-        <div className="relative z-10">
+        <div className="relative z-[10]">
           <Header />
           <main>{children}</main>
           <Footer />
