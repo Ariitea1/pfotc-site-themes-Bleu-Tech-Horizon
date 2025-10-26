@@ -23,20 +23,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="relative overflow-x-hidden bg-[#0b1220] text-white">
         {/* Halo principal bleu – effet terrestre */}
         <div
-          className="absolute bottom-[-120px] left-1/2 -translate-x-1/2 w-[160%] h-[500px]
-                     bg-[radial-gradient(ellipse_at_center,rgba(0,210,255,0.45)_0%,rgba(0,140,255,0.25)_40%,rgba(255,255,255,0.05)_70%,transparent_90%)]
-                     blur-[100px] opacity-90 rounded-full animate-pulse-slow pointer-events-none z-0"
+          className="absolute bottom-[-140px] left-1/2 -translate-x-1/2 w-[180%] h-[520px]
+                     bg-[radial-gradient(ellipse_at_center,rgba(0,200,255,0.45)_0%,rgba(0,140,255,0.25)_40%,rgba(0,60,100,0.1)_70%,transparent_90%)]
+                     blur-[100px] opacity-80 rounded-full animate-pulse-slow pointer-events-none z-0"
         ></div>
 
-        {/* Liseré blanc diffus visible – effet horizon lumineux */}
+        {/* Liseré blanc intense – effet horizon lumineux net */}
         <div
-          className="absolute bottom-[-80px] left-1/2 -translate-x-1/2 w-[180%] h-[450px]
-                     bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.7)_0%,rgba(255,255,255,0.15)_40%,transparent_85%)]
-                     blur-[90px] opacity-50 rounded-full pointer-events-none z-[5]"
+          className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 w-[200%] h-[420px]
+                     bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.5)_15%,rgba(255,255,255,0.2)_40%,transparent_80%)]
+                     blur-[70px] opacity-70 rounded-full pointer-events-none z-[10] mix-blend-screen"
         ></div>
 
         {/* Contenu principal */}
-        <div className="relative z-10">
+        <div className="relative z-20">
           <Header />
           <main>{children}</main>
           <Footer />
