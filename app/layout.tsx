@@ -28,10 +28,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                      blur-[100px] opacity-80 rounded-full animate-pulse-slow pointer-events-none z-[0]"
         ></div>
 
-        {/* Liseré blanc lumineux – horizon net et doux */}
+        {/* Liseré blanc droit (horizon lumineux simple) */}
         <div
-          className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 w-[200%] h-[420px]
-                     bg-gradient-lisere blur-[70px] opacity-70 rounded-full pointer-events-none z-[5] mix-blend-screen"
+          className="absolute bottom-[0px] left-0 w-full h-[3px]
+                     bg-gradient-to-r from-white/70 via-white/90 to-white/70
+                     opacity-80 blur-[1px] z-[10]"
         ></div>
 
         {/* Contenu principal */}
