@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* =========================================================
-   🌍 Couleur de fond principale PFOTC
+   🎨 Couleur de fond PFOTC
    ========================================================= */
 :root {
   --bg: #0b1220;
@@ -13,11 +13,85 @@ html, body {
   background-color: var(--bg);
   color: rgb(226 232 240); /* slate-200 */
   overflow-x: hidden;
-  font-family: 'Inter', sans-serif;
 }
 
 /* =========================================================
-   🌌 Halo bleu terrestre – effet pulsé
+   🌌 PFOTC HALO – effet lumineux "horizon terrestre"
+   ========================================================= */
+.halo {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  width: 160%;
+  height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(180, 230, 255, 0.25) 20%,
+    rgba(0, 180, 255, 0.15) 45%,
+    rgba(0, 120, 255, 0.1) 70%,
+    transparent 85%
+  );
+  filter: blur(100px);
+  opacity: 0.9;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: haloPulse 18s ease-in-out infinite, haloDrift 90s linear infinite;
+}
+
+/* 🌠 Animation pulsation lumineuse */
+@keyframes haloPulse {
+  0% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+  100% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* 🌎 Mouvement lent pour effet orbital */
+@keyframes haloDrift {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateX(-52%) rotate(0.5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+/* =========================================================
+   ✨ LISERÉ BLANC ATMOSPHÉRIQUE – effet "horizon"
+   ========================================================= */
+
+/* Force Tailwind à conserver mix-blend-screen */
+.mix-blend-screen {
+  mix-blend-mode: screen;
+}
+
+/* Gradient du liseré blanc (effet horizon lumineux) */
+.bg-gradient-lisere {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.5) 15%,
+    rgba(255, 255, 255, 0.2) 40%,
+    transparent 80%
+  );
+}
+
+/* =========================================================
+   🌫️ Animation du halo lent et fluide
    ========================================================= */
 @keyframes pulse-slow {
   0%, 100% {
@@ -25,55 +99,11 @@ html, body {
     transform: scale(1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.05);
+    opacity: 0.95;
+    transform: scale(1.03);
   }
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 12s ease-in-out infinite;
-}
-
-/* =========================================================
-   🌠 Liseré blanc diffus – effet horizon lumineux
-   ========================================================= */
-.aura-white {
-  position: absolute;
-  bottom: -115px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 160%;
-  height: 520px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.2) 30%,
-    transparent 80%
-  );
-  filter: blur(70px);
-  opacity: 0.3;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* =========================================================
-   🎨 Liens et transitions globales
-   ========================================================= */
-a {
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-a:hover {
-  color: #67e8f9; /* cyan-300 */
-}
-
-/* =========================================================
-   🌙 Mode sombre et accessibilité
-   ========================================================= */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #0b1220;
-    color: rgb(226 232 240);
-  }
+  animation: pulse-slow 6s ease-in-out infinite;
 }
