@@ -1,46 +1,79 @@
-import "./globals.css";
-import { ReactNode } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-export const metadata = {
-  title: "PFOTC – Pacific Flight Operations & Training Center",
-  description: "Expertise, formation et innovation au service des opérations aériennes.",
-  icons: {
-    icon: [
-      { url: "/favicon_transparent.png", type: "image/png" },
-      { url: "/favicon_bleu_nuit.png", type: "image/png" },
-    ],
-    shortcut: ["/favicon_transparent.png"],
-    apple: ["/favicon_bleu_nuit.png"],
-  },
-};
+/* =========================================================
+   🌍 Couleur de fond principale PFOTC
+   ========================================================= */
+:root {
+  --bg: #0b1220;
+}
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="fr">
-      <body className="relative overflow-x-hidden bg-[#0b1220] text-white">
-        {/* Halo principal bleu – effet terrestre */}
-        <div
-          className="absolute bottom-[-120px] left-1/2 -translate-x-1/2 w-[160%] h-[500px]
-                     bg-[radial-gradient(ellipse_at_center,rgba(0,210,255,0.45)_0%,rgba(0,140,255,0.25)_40%,rgba(255,255,255,0.05)_70%,transparent_90%)]
-                     blur-[100px] opacity-90 rounded-full animate-pulse-slow pointer-events-none z-0"
-        ></div>
+html, body {
+  background-color: var(--bg);
+  color: rgb(226 232 240); /* slate-200 */
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
 
-        {/* Liseré blanc fin au-dessus du halo */}
-        <div
-          className="absolute bottom-[-115px] left-1/2 -translate-x-1/2 w-[160%] h-[520px]
-                     bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.2)_30%,transparent_80%)]
-                     blur-[70px] opacity-30 rounded-full pointer-events-none z-[1]"
-        ></div>
+/* =========================================================
+   🌌 Halo bleu terrestre – effet pulsé
+   ========================================================= */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
 
-        {/* Contenu principal */}
-        <div className="relative z-10">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+
+/* =========================================================
+   🌠 Liseré blanc diffus – effet horizon lumineux
+   ========================================================= */
+.aura-white {
+  position: absolute;
+  bottom: -115px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160%;
+  height: 520px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    transparent 80%
   );
+  filter: blur(70px);
+  opacity: 0.3;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   🎨 Liens et transitions globales
+   ========================================================= */
+a {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover {
+  color: #67e8f9; /* cyan-300 */
+}
+
+/* =========================================================
+   🌙 Mode sombre et accessibilité
+   ========================================================= */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0b1220;
+    color: rgb(226 232 240);
+  }
 }
