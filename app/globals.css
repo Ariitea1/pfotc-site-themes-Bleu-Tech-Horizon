@@ -1,75 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+import "./globals.css";
+import { ReactNode } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-/* =========================================================
-   🎨 COULEUR DE FOND ET TEXTE – Bleu Tech Horizon
-   ========================================================= */
-:root {
-  --bg: #071326;
-}
+export const metadata = {
+  title: "PFOTC – Pacific Flight Operations & Training Center",
+  description: "Expertise, formation et innovation au service des opérations aériennes.",
+  icons: {
+    icon: [
+      { url: "/favicon_transparent.png", type: "image/png" },
+      { url: "/favicon_bleu_nuit.png", type: "image/png" },
+    ],
+    shortcut: ["/favicon_transparent.png"],
+    apple: ["/favicon_bleu_nuit.png"],
+  },
+};
 
-html, body {
-  background: radial-gradient(circle at 50% 100%, #0b2346, #071326 70%);
-  color: rgb(226 232 240);
-  overflow-x: hidden;
-}
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang="fr">
+      <body className="relative overflow-x-hidden bg-[#0b1220] text-white">
+        {/* Halo principal bleu – effet terrestre */}
+        <div
+          className="absolute bottom-[-120px] left-1/2 -translate-x-1/2 w-[160%] h-[500px]
+                     bg-[radial-gradient(ellipse_at_center,rgba(0,210,255,0.45)_0%,rgba(0,140,255,0.25)_40%,rgba(255,255,255,0.05)_70%,transparent_90%)]
+                     blur-[100px] opacity-90 rounded-full animate-pulse-slow pointer-events-none z-0"
+        ></div>
 
-/* =========================================================
-   🌌 PFOTC AURA – Liseré lumineux blanc-bleuté
-   ========================================================= */
-.aura {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 180%;
-  height: 120%;
-  transform: translate(-50%, -50%) rotate(10deg);
-  background: radial-gradient(
-    ellipse at 50% 80%,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(180, 230, 255, 0.4) 20%,
-    rgba(0, 140, 255, 0.15) 40%,
-    rgba(0, 80, 160, 0.05) 65%,
-    transparent 80%
+        {/* Liseré blanc fin au-dessus du halo */}
+        <div
+          className="absolute bottom-[-115px] left-1/2 -translate-x-1/2 w-[160%] h-[520px]
+                     bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.2)_30%,transparent_80%)]
+                     blur-[70px] opacity-30 rounded-full pointer-events-none z-[1]"
+        ></div>
+
+        {/* Contenu principal */}
+        <div className="relative z-10">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
   );
-  filter: blur(90px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 0;
-  animation: auraDrift 60s ease-in-out infinite alternate;
-}
-
-/* 🌠 Mouvement lent, effet "vague de lumière" */
-@keyframes auraDrift {
-  0% {
-    transform: translate(-50%, -50%) rotate(8deg) scale(1);
-    opacity: 0.85;
-  }
-  50% {
-    transform: translate(-48%, -52%) rotate(12deg) scale(1.05);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(10deg) scale(1);
-    opacity: 0.85;
-  }
-}
-
-/* =========================================================
-   ✨ Animation douce sur les éléments (optionnel)
-   ========================================================= */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 1.5s ease-out forwards;
 }
