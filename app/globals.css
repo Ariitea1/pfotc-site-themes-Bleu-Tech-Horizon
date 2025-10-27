@@ -111,7 +111,7 @@ body {
 }
 
 /* =========================================================
-   🔵 Boutons PFOTC – version double bleue harmonisée
+   🔵 Boutons PFOTC – version unifiée “Bleu Horizon”
    ========================================================= */
 
 .btn-primary,
@@ -121,43 +121,50 @@ body {
   border: none;
   border-radius: 0.75rem;
   padding: 0.75rem 1.75rem;
-  color: #fff;
+  color: #ffffff;
   transition: all 0.3s ease;
   cursor: pointer;
-}
+  position: relative;
+  z-index: 1;
 
-/* Premier bouton – bleu clair lumineux */
-.btn-primary {
-  background: linear-gradient(90deg, #00c6ff, #0070f3);
-  box-shadow:
-    0 0 25px rgba(0, 200, 255, 0.4),
-    inset 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-.btn-primary:hover {
-  box-shadow:
-    0 0 40px rgba(0, 230, 255, 0.6),
-    0 0 70px rgba(0, 200, 255, 0.35),
-    inset 0 0 15px rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-}
-
-/* Second bouton – bleu plus profond avec effet verre */
-.btn-secondary {
+  /* Fond principal : bleu horizon avec léger dégradé */
   background: linear-gradient(90deg, #0052a5, #0078ff);
   box-shadow:
     0 0 25px rgba(0, 120, 255, 0.3),
     inset 0 0 10px rgba(255, 255, 255, 0.08);
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
+/* 🌀 Survol : éclaircissement et effet de levitation */
+.btn-primary:hover,
 .btn-secondary:hover {
   background: linear-gradient(90deg, #0080ff, #00bfff);
   box-shadow:
-    0 0 40px rgba(0, 200, 255, 0.5),
-    0 0 70px rgba(0, 160, 255, 0.3),
+    0 0 45px rgba(0, 200, 255, 0.55),
+    0 0 80px rgba(0, 160, 255, 0.35),
     inset 0 0 15px rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
+}
+
+/* 🌤️ Halo diffus au sol sous les boutons */
+.btn-primary::after,
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 85%;
+  height: 10px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 180, 255, 0.25) 0%,
+    rgba(0, 180, 255, 0.15) 40%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* =========================================================
