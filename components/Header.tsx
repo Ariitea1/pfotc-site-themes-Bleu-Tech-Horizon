@@ -19,9 +19,9 @@ export default function Header() {
         {/* LOGO PFOTC */}
         <Link href="/" className="flex items-center gap-3 group relative">
           
-          {/* HALO ANIMÉ */}
+          {/* HALO ANIMÉ DERRIÈRE LE LOGO */}
           <div
-            className={`absolute -inset-3 rounded-full bg-cyan-400/10 blur-xl transition-all duration-1000 ${
+            className={`absolute -inset-6 rounded-full bg-cyan-400/10 blur-2xl transition-all duration-1000 ${
               loaded ? "opacity-80 animate-pulse-slow" : "opacity-0 scale-75"
             }`}
           />
@@ -33,35 +33,22 @@ export default function Header() {
             }`}
           />
 
-          {/* LOGO PRINCIPAL */}
+          {/* NOUVEAU LOGO PFOTC */}
           <div
             className={`relative z-10 transition-all duration-1000 ease-out ${
               loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,200,255,0.4)]"
+                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]"
                 : "opacity-0 scale-75"
-            } group-hover:-translate-y-0.5`}
+            } group-hover:scale-[1.03]`}
           >
             <Image
-              src="/favicon_bleu_nuit.png"
+              src="/pfotc-logo.png" // ✅ ton nouveau logo
               alt="PFOTC Logo"
-              width={52}
-              height={52}
+              width={160}
+              height={60}
               priority
+              className="transition-transform duration-500"
             />
-          </div>
-
-          {/* TEXTE PFOTC + sous-titre */}
-          <div
-            className={`ml-2 transition-all duration-1000 delay-300 ${
-              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
-          >
-            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
-              PFOTC
-            </h1>
-            <p className="text-slate-400 text-sm leading-tight">
-              Pacific Flight Operations & Training Center
-            </p>
           </div>
         </Link>
 
