@@ -22,33 +22,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <body
         className="
-          relative 
-          overflow-x-hidden 
-          text-white 
-          min-h-screen 
-          bg-[#0b1220] 
+          relative
+          overflow-x-hidden
+          text-white
+          min-h-screen
+          bg-[#0b1220]
           font-inter
         "
       >
-        {/* === FOND D'ÉCRAN HORIZON BLEU (image fixe) === */}
-        <div
-          className="fixed inset-0 -z-20"
-          style={{
-            backgroundImage: "url('/background_horizon.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center bottom",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
-          }}
-        ></div>
+        {/* Fond horizon BLEU (image uniquement) */}
+        <div className="bg-horizon" />
 
-        {/* === EFFETS LUMINEUX (halo + ligne d’horizon) === */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <div className="horizon"></div>
-          <div className="horizon-line"></div>
-        </div>
-
-        {/* === CONTENU DU SITE === */}
+        {/* Contenu du site au-dessus du fond */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>
