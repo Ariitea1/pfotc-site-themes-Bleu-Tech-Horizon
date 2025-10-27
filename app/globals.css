@@ -1,76 +1,71 @@
 /* =========================================================
-   🌌 Effet de halo et horizon lumineux PFOTC (centré)
+   🌌 Horizon lumineux PFOTC (rendu original réaliste)
    ========================================================= */
 
-/* Halo diffus au niveau du liseré */
+/* Halo discret sous le liseré */
 .horizon {
   position: fixed;
-  bottom: 48%; /* Position verticale du halo */
+  bottom: 46%; /* position ajustée selon ta maquette */
   left: 0;
   width: 100%;
-  height: 260px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 200, 255, 0.35) 0%,
-    rgba(0, 140, 255, 0.25) 30%,
-    rgba(0, 60, 120, 0.15) 70%,
-    transparent 100%
+  height: 140px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 200, 255, 0.25) 0%,
+    rgba(0, 120, 200, 0.15) 40%,
+    transparent 80%
   );
-  filter: blur(60px);
-  opacity: 0.9;
+  filter: blur(25px);
+  opacity: 0.6;
   pointer-events: none;
   z-index: 0;
-  animation: horizonPulse 18s ease-in-out infinite;
+  animation: horizonPulse 16s ease-in-out infinite;
 }
 
-/* 🌠 Ligne lumineuse — effet "horizon terrestre" */
+/* Liseré blanc-bleu — effet lumineux central */
 .horizon-line {
   position: fixed;
-  bottom: 50%; /* Ligne placée au centre visuel */
+  bottom: 49%;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(
     to right,
-    rgba(0, 180, 255, 0) 0%,
+    rgba(0, 150, 255, 0) 0%,
     rgba(255, 255, 255, 0.95) 45%,
     rgba(255, 255, 255, 0.95) 55%,
-    rgba(0, 180, 255, 0) 100%
+    rgba(0, 150, 255, 0) 100%
   );
-  box-shadow: 
-    0 0 35px rgba(0, 240, 255, 0.9),
-    0 0 90px rgba(0, 240, 255, 0.5);
-  animation: lineFlow 10s ease-in-out infinite;
+  box-shadow:
+    0 0 15px rgba(0, 240, 255, 0.9),
+    0 0 60px rgba(0, 220, 255, 0.4);
+  animation: lineFlow 12s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
 }
 
 /* =========================================================
-   ✨ Animations
+   ✨ Animations subtiles
    ========================================================= */
 
-/* Halo qui respire lentement */
 @keyframes horizonPulse {
   0%, 100% {
-    opacity: 0.75;
+    opacity: 0.5;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.03);
+    opacity: 0.8;
+    transform: scale(1.02);
   }
 }
 
-/* Ligne lumineuse subtilement mouvante */
 @keyframes lineFlow {
   0%, 100% {
     opacity: 0.8;
     transform: translateY(0);
-    filter: blur(0px);
   }
   50% {
     opacity: 1;
     transform: translateY(-1px);
-    filter: blur(1px);
   }
 }
