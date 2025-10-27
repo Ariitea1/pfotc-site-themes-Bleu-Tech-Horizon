@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 /* =========================================================
-   🎨 Base PFOTC
+   🎨 Couleur et typographie de base PFOTC
    ========================================================= */
 :root {
   --bg: #0b1220;
   --text-color: rgb(226 232 240);
-  /* Position Y par défaut du liseré dans l'image (desktop) */
-  --bg-pos-y: 62%;
+  /* Position Y du liseré intégré dans le fond horizon */
+  --bg-pos-y: 58%;
 }
 
 html,
@@ -23,40 +23,49 @@ body {
 }
 
 /* =========================================================
-   🌅 FOND HORIZON — IMAGE SEULE (aucun liseré CSS)
+   🌅 FOND D'ÉCRAN HORIZON (image fixe avec liseré intégré)
    ========================================================= */
 .bg-horizon {
   position: fixed;
   inset: 0;
-  z-index: -1;                /* Derrière tout le contenu */
+  z-index: -1; /* fond sous tout le contenu */
   background-image: url("/background_horizon.png");
   background-repeat: no-repeat;
   background-size: cover;
-  /* Aligne la ligne lumineuse intégrée à l'image
-     entre les boutons et les cartes */
   background-position: center var(--bg-pos-y);
   background-attachment: fixed;
-}
-
-/* ====== Ajustements responsives pour bien placer le liseré ====== */
-/* Laptop ≤ 1024px : on descend un peu le liseré */
-@media (max-width: 1024px) {
-  :root { --bg-pos-y: 70%; }
-}
-
-/* Mobile ≤ 640px : on le descend davantage */
-@media (max-width: 640px) {
-  :root { --bg-pos-y: 78%; }
-}
-
-/* Très grands écrans ≥ 1536px : on le remonte légèrement */
-@media (min-width: 1536px) {
-  :root { --bg-pos-y: 58%; }
+  background-color: var(--bg);
 }
 
 /* =========================================================
-   🔧 Utilitaires PFOTC (facultatifs)
+   📱 Ajustements responsives (position du liseré)
    ========================================================= */
+
+/* Laptops ≤ 1024px : descendre légèrement le liseré */
+@media (max-width: 1024px) {
+  :root {
+    --bg-pos-y: 65%;
+  }
+}
+
+/* Mobiles ≤ 640px : descendre davantage */
+@media (max-width: 640px) {
+  :root {
+    --bg-pos-y: 72%;
+  }
+}
+
+/* Très grands écrans ≥ 1536px : remonter un peu */
+@media (min-width: 1536px) {
+  :root {
+    --bg-pos-y: 55%;
+  }
+}
+
+/* =========================================================
+   🌐 Utilitaires additionnels PFOTC
+   ========================================================= */
+
 .text-gradient {
   background: linear-gradient(90deg, #00e0ff, #0070f3);
   -webkit-background-clip: text;
@@ -70,3 +79,15 @@ body {
   border: 1px solid rgba(0, 180, 255, 0.20);
   border-radius: 1rem;
 }
+
+/* Animation douce sur les cartes */
+.card-glow:hover {
+  box-shadow:
+    0 0 25px rgba(0, 200, 255, 0.20),
+    inset 0 0 25px rgba(0, 200, 255, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+/* =========================================================
+   🧭 Fin du globals.css PFOTC
+   ========================================================= */
