@@ -30,9 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           font-inter
         "
       >
-        {/* === Fond Horizon (image statique) === */}
+        {/* === FOND D'ÉCRAN HORIZON BLEU (image fixe) === */}
         <div
-          className="fixed inset-0 -z-10"
+          className="fixed inset-0 -z-20"
           style={{
             backgroundImage: "url('/background_horizon.png')",
             backgroundSize: "cover",
@@ -42,18 +42,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         ></div>
 
-        {/* === Contenu global du site === */}
-        <div className="relative z-10 flex flex-col min-h-screen">
-          <Header />
-
-          <main className="flex-grow">{children}</main>
-
-          <Footer />
+        {/* === EFFETS LUMINEUX (halo + ligne d’horizon) === */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <div className="horizon"></div>
+          <div className="horizon-line"></div>
         </div>
 
-        {/* === Effets lumineux PFOTC === */}
-        <div className="horizon"></div>
-        <div className="horizon-line"></div>
+        {/* === CONTENU DU SITE === */}
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
