@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 export const metadata = {
   title: "PFOTC – Pacific Flight Operations & Training Center",
   description:
-    "Expertise, formation et innovation au service des opérations aériennes.",
+    "Expertise, Formation & Innovation au service des opérations aériennes.",
   icons: {
     icon: [
       { url: "/favicon_transparent.png", type: "image/png" },
@@ -20,16 +20,34 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="relative text-white min-h-screen overflow-x-hidden font-inter bg-[#0b1220]">
-        {/* === FOND HORIZON === */}
-        <div className="background-horizon"></div>
+      <body
+        className="
+          relative 
+          overflow-x-hidden 
+          text-white 
+          min-h-screen 
+          bg-[#0b1220] 
+          bg-[url('/background_horizon.png')] 
+          bg-no-repeat 
+          bg-cover 
+          bg-center 
+          bg-fixed 
+          bg-bottom
+        "
+      >
+        {/* 🌌 Halo central derrière le bloc titre */}
+        <div className="hero-halo"></div>
 
-        {/* === CONTENU DU SITE === */}
-        <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Conteneur global du contenu */}
+        <div className="relative z-10">
           <Header />
-          <main className="flex-grow">{children}</main>
+          <main>{children}</main>
           <Footer />
         </div>
+
+        {/* Halo et ligne lumineuse – Horizon animé */}
+        <div className="horizon"></div>
+        <div className="horizon-line"></div>
       </body>
     </html>
   );
