@@ -2,27 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --------- Fond horizon (image depuis /public) --------- */
-html, body {
-  height: 100%;
-}
-
+/* =========================================================
+   🎨 Couleur et typographie de base PFOTC
+   ========================================================= */
 :root {
-  --page-bg: #071323; /* bleu nuit de secours si l'image ne charge pas */
+  --bg: #0b1220;
+  --text-color: rgb(226 232 240);
 }
 
-/* Applique l'image d'arrière-plan “horizon” */
-.body-horizon {
-  /* Couleur de fond de secours + image */
-  background:
-    var(--page-bg)
-    url("/background_horizon.png") no-repeat center top / cover fixed;
-  color: rgb(226 232 240);
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
-/* Supprime tout éventuel halo/overlay qui cacherait l'image */
-.halo,
-.aura {
-  display: none !important;
+/* =========================================================
+   🌌 Effet de halo et horizon lumineux PFOTC
+   ========================================================= */
+
+/* -- Conteneur du halo et du liseré lumineux -- */
+.horizon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 200, 255, 0.35) 0%,
+    rgba(0, 140, 255, 0.25) 30%,
+    rgba(0, 60, 120, 0.15) 70%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: horizonPulse 18s ease-in-out infinite;
 }
+
+/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
+.horizon-line {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 180, 255, 0) 0%,
+    rgba(0, 240, 255, 0.9) 40%,
+    rgba(0, 240, 255, 0.9) 60%,
+    rgba(0, 180, 255, 0) 100%
+  );
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
+              0 0 60px rgba(0, 200, 255, 0.3);
+  animation: lineFlow 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   ✨ Animations
+   ========================================================= */
+
+/* Halo qui respire lentement */
+@keyframes horizonPulse {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+/* Ligne lumineuse subtilement mouvante */
+@keyframes lineFlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+    filter: blur(1px);
+  }
+}
+
+/* =========================================================
+   🌐 Utilitaires additionnels
+   ========================================================= */
+
+.animate-pulse-slow {
+  animation: horizonPulse 14s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00e0ff, #0070f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-glow {
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.1),
+              inset 0 0 20px rgba(0, 200, 255, 0.05);
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  border-radius: 1rem;
+}
+
+/* =========================================================
+   🧭 Fin du globals.css PFOTC
+   ========================================================= */
