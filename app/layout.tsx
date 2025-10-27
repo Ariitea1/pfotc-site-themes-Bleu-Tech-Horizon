@@ -5,7 +5,8 @@ import Footer from "../components/Footer";
 
 export const metadata = {
   title: "PFOTC – Pacific Flight Operations & Training Center",
-  description: "Expertise, formation et innovation au service des opérations aériennes.",
+  description:
+    "Expertise, formation et innovation au service des opérations aériennes.",
   icons: {
     icon: [
       { url: "/favicon_transparent.png", type: "image/png" },
@@ -25,23 +26,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           overflow-x-hidden 
           text-white 
           min-h-screen 
-          bg-[#0b1220] 
-          bg-[url('/background_horizon.png')] 
-          bg-no-repeat 
-          bg-cover 
-          bg-center 
-          bg-fixed 
-          bg-bottom
+          bg-[#0b1220]
+          font-inter
         "
       >
-        {/* Conteneur global du contenu */}
+        {/* === Contenu principal du site === */}
         <div className="relative z-10">
           <Header />
           <main>{children}</main>
           <Footer />
         </div>
 
-        {/* Halo et ligne lumineuse – Horizon animé */}
+        {/* === Effets visuels PFOTC : Halo & Ligne lumineuse === */}
         <div className="horizon"></div>
         <div className="horizon-line"></div>
       </body>
