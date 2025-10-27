@@ -1,51 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* =========================================================
-   🎨 Couleur et typographie de base PFOTC
-   ========================================================= */
-:root {
-  --bg: #0b1220;
-  --text-color: rgb(226 232 240);
-}
-
-html,
-body {
-  background-color: var(--bg);
-  color: var(--text-color);
-  font-family: 'Inter', system-ui, sans-serif;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-}
-
-/* =========================================================
-   🌅 Fond d'écran horizon PFOTC
-   ========================================================= */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("/background_horizon.png");
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  z-index: -2; /* Derrière tout */
-  opacity: 1;  /* Pleine intensité du fond */
-}
-
-/* =========================================================
-   🌌 Effet de halo et horizon lumineux PFOTC
+   🌌 Effet de halo et horizon lumineux PFOTC (centré)
    ========================================================= */
 
-/* -- Conteneur du halo et du liseré lumineux -- */
+/* Halo diffus au niveau du liseré */
 .horizon {
   position: fixed;
-  bottom: 0;
+  bottom: 48%; /* Position verticale du halo */
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 260px;
   background: linear-gradient(
     to top,
     rgba(0, 200, 255, 0.35) 0%,
@@ -53,29 +16,30 @@ body::before {
     rgba(0, 60, 120, 0.15) 70%,
     transparent 100%
   );
-  filter: blur(40px);
+  filter: blur(60px);
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
   animation: horizonPulse 18s ease-in-out infinite;
 }
 
-/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
+/* 🌠 Ligne lumineuse — effet "horizon terrestre" */
 .horizon-line {
   position: fixed;
-  bottom: 0;
+  bottom: 50%; /* Ligne placée au centre visuel */
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(
     to right,
     rgba(0, 180, 255, 0) 0%,
-    rgba(0, 240, 255, 0.9) 40%,
-    rgba(0, 240, 255, 0.9) 60%,
+    rgba(255, 255, 255, 0.95) 45%,
+    rgba(255, 255, 255, 0.95) 55%,
     rgba(0, 180, 255, 0) 100%
   );
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
-              0 0 60px rgba(0, 200, 255, 0.3);
+  box-shadow: 
+    0 0 35px rgba(0, 240, 255, 0.9),
+    0 0 90px rgba(0, 240, 255, 0.5);
   animation: lineFlow 10s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
@@ -100,7 +64,7 @@ body::before {
 /* Ligne lumineuse subtilement mouvante */
 @keyframes lineFlow {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.8;
     transform: translateY(0);
     filter: blur(0px);
   }
@@ -110,28 +74,3 @@ body::before {
     filter: blur(1px);
   }
 }
-
-/* =========================================================
-   🌐 Utilitaires additionnels
-   ========================================================= */
-
-.animate-pulse-slow {
-  animation: horizonPulse 14s ease-in-out infinite;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #00e0ff, #0070f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.card-glow {
-  box-shadow: 0 0 15px rgba(0, 200, 255, 0.1),
-              inset 0 0 20px rgba(0, 200, 255, 0.05);
-  border: 1px solid rgba(0, 180, 255, 0.2);
-  border-radius: 1rem;
-}
-
-/* =========================================================
-   🧭 Fin du globals.css PFOTC
-   ========================================================= */
