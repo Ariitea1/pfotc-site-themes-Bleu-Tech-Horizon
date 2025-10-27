@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 /* =========================================================
-   🎨 Base PFOTC – Horizon bleu réel (image fixe)
+   🎨 Couleur et typographie de base PFOTC
    ========================================================= */
 :root {
   --bg: #0b1220;
   --text-color: rgb(226 232 240);
 }
 
-/* Couleur, texte, comportement global */
+/* =========================================================
+   🧭 Structure générale du site
+   ========================================================= */
 html,
 body {
   background-color: var(--bg);
@@ -22,35 +24,31 @@ body {
 }
 
 /* =========================================================
-   🌅 Fond horizon – image seule (aucun halo CSS)
+   🌅 FOND HORIZON BLEU (image fixe avec liseré intégré)
    ========================================================= */
 .background-horizon {
   position: fixed;
   inset: 0;
   z-index: -1;
   background-image: url("/background_horizon.png");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 60%;
   background-attachment: fixed;
-  background-position: center 60%; /* ⬅️ Position calibrée */
   background-color: var(--bg);
 }
 
-/* Ajustement laptop */
+/* Ajustements responsives pour bien placer le liseré */
 @media (max-width: 1024px) {
   .background-horizon {
     background-position: center 68%;
   }
 }
-
-/* Ajustement mobile */
 @media (max-width: 640px) {
   .background-horizon {
     background-position: center 75%;
   }
 }
-
-/* Très grands écrans */
 @media (min-width: 1536px) {
   .background-horizon {
     background-position: center 55%;
@@ -58,7 +56,65 @@ body {
 }
 
 /* =========================================================
-   💎 Utilitaires PFOTC
+   💡 Halo lumineux derrière les boutons PFOTC
+   ========================================================= */
+.btn-halo {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Halo diffus */
+.btn-halo::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 200, 255, 0.6) 0%,
+    rgba(0, 160, 255, 0.3) 30%,
+    rgba(0, 80, 200, 0.1) 60%,
+    transparent 100%
+  );
+  filter: blur(16px);
+  opacity: 0.7;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Survol – accentuation du halo */
+.btn-halo:hover::before {
+  opacity: 1;
+  filter: blur(22px);
+}
+
+/* Bouton principal (cyan plein) */
+.btn-primary {
+  background-color: #00bfff;
+  color: #0b1220;
+  font-weight: 600;
+  border: none;
+}
+
+/* Bouton secondaire (transparent + bord bleu clair) */
+.btn-secondary {
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  color: #e2e8f0;
+  background-color: transparent;
+}
+
+/* Survol léger */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* =========================================================
+   ✨ Effets de texte et cartes
    ========================================================= */
 .text-gradient {
   background: linear-gradient(90deg, #00e0ff, #0070f3);
