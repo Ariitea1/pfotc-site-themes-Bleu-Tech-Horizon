@@ -24,31 +24,31 @@ body {
    🌌 Effet de halo et horizon lumineux PFOTC
    ========================================================= */
 
-/* -- Conteneur du halo et du liseré lumineux -- */
+/* -- Conteneur du halo global (brume lumineuse basse) -- */
 .horizon {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 280px; /* un peu plus haut pour envelopper les cartes */
   background: linear-gradient(
     to top,
     rgba(0, 200, 255, 0.35) 0%,
-    rgba(0, 140, 255, 0.25) 30%,
-    rgba(0, 60, 120, 0.15) 70%,
+    rgba(0, 140, 255, 0.25) 25%,
+    rgba(0, 100, 180, 0.15) 60%,
     transparent 100%
   );
-  filter: blur(40px);
+  filter: blur(50px);
   opacity: 0.9;
   pointer-events: none;
   z-index: 0;
   animation: horizonPulse 18s ease-in-out infinite;
 }
 
-/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
+/* 🌠 Ligne lumineuse – effet "horizon terrestre" (remontée) */
 .horizon-line {
   position: fixed;
-  bottom: 0;
+  bottom: 150px; /* ← ligne légèrement remontée */
   left: 0;
   width: 100%;
   height: 2px;
@@ -59,8 +59,10 @@ body {
     rgba(0, 240, 255, 0.9) 60%,
     rgba(0, 180, 255, 0) 100%
   );
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
-              0 0 60px rgba(0, 200, 255, 0.3);
+  box-shadow:
+    0 0 25px rgba(0, 240, 255, 0.7),
+    0 0 60px rgba(0, 200, 255, 0.3),
+    0 0 150px rgba(0, 240, 255, 0.1);
   animation: lineFlow 10s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
@@ -94,9 +96,10 @@ body {
    💡 Effet Halo autour des cartes de services
    ========================================================= */
 .card-glow {
-  box-shadow: 0 0 45px rgba(0, 200, 255, 0.3),
-              0 0 85px rgba(0, 200, 255, 0.15),
-              inset 0 0 25px rgba(0, 200, 255, 0.08);
+  box-shadow: 
+    0 0 45px rgba(0, 200, 255, 0.3),
+    0 0 85px rgba(0, 200, 255, 0.15),
+    inset 0 0 25px rgba(0, 200, 255, 0.08);
   border: 1px solid rgba(0, 180, 255, 0.25);
   border-radius: 1rem;
   background-color: rgba(11, 18, 32, 0.9);
@@ -104,9 +107,10 @@ body {
 }
 
 .card-glow:hover {
-  box-shadow: 0 0 70px rgba(0, 240, 255, 0.4),
-              0 0 120px rgba(0, 240, 255, 0.25),
-              inset 0 0 40px rgba(0, 200, 255, 0.15);
+  box-shadow: 
+    0 0 70px rgba(0, 240, 255, 0.4),
+    0 0 120px rgba(0, 240, 255, 0.25),
+    inset 0 0 40px rgba(0, 200, 255, 0.15);
   transform: translateY(-4px);
 }
 
@@ -114,7 +118,7 @@ body {
    ✨ Animations
    ========================================================= */
 
-/* Halo qui respire lentement (bas) */
+/* Halo global qui respire lentement */
 @keyframes horizonPulse {
   0%, 100% {
     opacity: 0.75;
