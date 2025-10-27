@@ -1,66 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* =========================================================
-   🎨 Couleur et typographie de base PFOTC
-   ========================================================= */
-:root {
-  --bg: #0b1220;
-  --text-color: rgb(226 232 240);
-}
-
-/* =========================================================
-   🧭 Structure générale
-   ========================================================= */
-html,
-body {
-  background-color: var(--bg);
-  color: var(--text-color);
-  font-family: 'Inter', system-ui, sans-serif;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-}
-
-/* =========================================================
-   🌅 FOND HORIZON BLEU
-   ========================================================= */
-.background-horizon {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: url("/background_horizon.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 60%;
-  background-attachment: fixed;
-  background-color: var(--bg);
-}
-
-/* Ajustement laptop */
-@media (max-width: 1024px) {
-  .background-horizon {
-    background-position: center 68%;
-  }
-}
-
-/* Ajustement mobile */
-@media (max-width: 640px) {
-  .background-horizon {
-    background-position: center 75%;
-  }
-}
-
-/* Très grands écrans */
-@media (min-width: 1536px) {
-  .background-horizon {
-    background-position: center 55%;
-  }
-}
-
-/* =========================================================
-   💡 HALOS LUMINEUX RENFORCÉS
+   ⚡ HALOS – Version intensifiée PFOTC Horizon+
    ========================================================= */
 
 /* === HALO – BOUTONS === */
@@ -72,29 +11,29 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Halo diffus mais plus large et plus intense */
 .btn-halo::before {
   content: "";
   position: absolute;
-  inset: -5px;
+  inset: -8px;
   border-radius: inherit;
   background: radial-gradient(
     circle at center,
-    rgba(0, 255, 255, 0.8) 0%,
-    rgba(0, 200, 255, 0.5) 30%,
-    rgba(0, 120, 255, 0.25) 60%,
+    rgba(0, 255, 255, 1) 0%,
+    rgba(0, 210, 255, 0.6) 20%,
+    rgba(0, 150, 255, 0.3) 50%,
+    rgba(0, 80, 200, 0.1) 80%,
     transparent 100%
   );
-  filter: blur(25px);
+  filter: blur(40px);
   opacity: 0.9;
   z-index: -1;
-  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out;
 }
 
-/* Survol – intensifie la lueur */
+/* Survol : intensifie le halo */
 .btn-halo:hover::before {
   opacity: 1;
-  filter: blur(35px);
+  filter: blur(60px);
 }
 
 /* Bouton principal (cyan plein) */
@@ -112,70 +51,55 @@ body {
   background-color: transparent;
 }
 
-/* Légère élévation au survol */
 .btn-primary:hover,
 .btn-secondary:hover {
   transform: translateY(-2px);
 }
 
 /* =========================================================
-   ✨ HALOS – CARTES / SECTIONS
+   💎 HALOS – CARTES / SECTIONS (version forte)
    ========================================================= */
-
-/* Glow plus visible autour des cartes */
 .card-glow {
   position: relative;
   border-radius: 1rem;
-  border: 1px solid rgba(0, 200, 255, 0.2);
-  background-color: rgba(11, 18, 32, 0.7);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 220, 255, 0.25);
+  background-color: rgba(11, 18, 32, 0.8);
+  backdrop-filter: blur(12px);
   box-shadow:
-    0 0 25px rgba(0, 200, 255, 0.25),
-    0 0 60px rgba(0, 200, 255, 0.15),
-    inset 0 0 25px rgba(0, 200, 255, 0.08);
+    0 0 40px rgba(0, 240, 255, 0.45),
+    0 0 100px rgba(0, 200, 255, 0.25),
+    inset 0 0 35px rgba(0, 220, 255, 0.15);
   transition: all 0.4s ease-in-out;
 }
 
-/* Halo pulsant sous la carte */
+/* Halo diffus autour des cartes */
 .card-glow::before {
   content: "";
   position: absolute;
-  inset: -20px;
+  inset: -30px;
   border-radius: inherit;
   background: radial-gradient(
     circle at center,
-    rgba(0, 220, 255, 0.25) 0%,
-    rgba(0, 120, 255, 0.15) 40%,
-    transparent 80%
+    rgba(0, 250, 255, 0.35) 0%,
+    rgba(0, 200, 255, 0.25) 30%,
+    rgba(0, 100, 255, 0.15) 60%,
+    transparent 100%
   );
-  filter: blur(45px);
+  filter: blur(70px);
+  opacity: 0.9;
   z-index: -1;
-  opacity: 0.6;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 
-/* Survol : halo renforcé */
+/* Survol – halo plus éclatant */
 .card-glow:hover {
   box-shadow:
-    0 0 35px rgba(0, 220, 255, 0.35),
-    0 0 80px rgba(0, 200, 255, 0.25),
-    inset 0 0 30px rgba(0, 200, 255, 0.15);
+    0 0 60px rgba(0, 250, 255, 0.55),
+    0 0 140px rgba(0, 220, 255, 0.35),
+    inset 0 0 45px rgba(0, 220, 255, 0.18);
+  transform: translateY(-3px);
 }
 
 .card-glow:hover::before {
   opacity: 1;
-}
-
-/* =========================================================
-   🧭 Autres utilitaires visuels PFOTC
-   ========================================================= */
-.text-gradient {
-  background: linear-gradient(90deg, #00e0ff, #0070f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Transition douce */
-.transition-smooth {
-  transition: all 0.3s ease-in-out;
 }
