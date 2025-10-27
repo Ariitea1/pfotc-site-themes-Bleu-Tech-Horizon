@@ -3,15 +3,14 @@
 @tailwind utilities;
 
 /* =========================================================
-   🎨 Couleur et typographie de base PFOTC
+   🎨 Base PFOTC – Horizon bleu réel (image fixe)
    ========================================================= */
 :root {
   --bg: #0b1220;
   --text-color: rgb(226 232 240);
-  /* Position Y du liseré intégré dans le fond horizon */
-  --bg-pos-y: 58%;
 }
 
+/* Couleur, texte, comportement global */
 html,
 body {
   background-color: var(--bg);
@@ -23,49 +22,44 @@ body {
 }
 
 /* =========================================================
-   🌅 FOND D'ÉCRAN HORIZON (image fixe avec liseré intégré)
+   🌅 Fond horizon – image seule (aucun halo CSS)
    ========================================================= */
-.bg-horizon {
+.background-horizon {
   position: fixed;
   inset: 0;
-  z-index: -1; /* fond sous tout le contenu */
+  z-index: -1;
   background-image: url("/background_horizon.png");
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center var(--bg-pos-y);
+  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center 60%; /* ⬅️ Position calibrée */
   background-color: var(--bg);
 }
 
-/* =========================================================
-   📱 Ajustements responsives (position du liseré)
-   ========================================================= */
-
-/* Laptops ≤ 1024px : descendre légèrement le liseré */
+/* Ajustement laptop */
 @media (max-width: 1024px) {
-  :root {
-    --bg-pos-y: 65%;
+  .background-horizon {
+    background-position: center 68%;
   }
 }
 
-/* Mobiles ≤ 640px : descendre davantage */
+/* Ajustement mobile */
 @media (max-width: 640px) {
-  :root {
-    --bg-pos-y: 72%;
+  .background-horizon {
+    background-position: center 75%;
   }
 }
 
-/* Très grands écrans ≥ 1536px : remonter un peu */
+/* Très grands écrans */
 @media (min-width: 1536px) {
-  :root {
-    --bg-pos-y: 55%;
+  .background-horizon {
+    background-position: center 55%;
   }
 }
 
 /* =========================================================
-   🌐 Utilitaires additionnels PFOTC
+   💎 Utilitaires PFOTC
    ========================================================= */
-
 .text-gradient {
   background: linear-gradient(90deg, #00e0ff, #0070f3);
   -webkit-background-clip: text;
@@ -78,14 +72,13 @@ body {
     inset 0 0 20px rgba(0, 200, 255, 0.05);
   border: 1px solid rgba(0, 180, 255, 0.20);
   border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Animation douce sur les cartes */
 .card-glow:hover {
   box-shadow:
     0 0 25px rgba(0, 200, 255, 0.20),
     inset 0 0 25px rgba(0, 200, 255, 0.08);
-  transition: all 0.3s ease-in-out;
 }
 
 /* =========================================================
