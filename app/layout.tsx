@@ -1,29 +1,59 @@
 import "./globals.css";
+import { ReactNode } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export const metadata = {
-  title: "PFOTC – Test Horizon Background",
-  description: "Vérification du fond d’écran horizon bleu PFOTC.",
+  title: "PFOTC – Pacific Flight Operations & Training Center",
+  description:
+    "Expertise, formation et innovation au service des opérations aériennes.",
+  icons: {
+    icon: [
+      { url: "/favicon_transparent.png", type: "image/png" },
+      { url: "/favicon_bleu_nuit.png", type: "image/png" },
+    ],
+    shortcut: ["/favicon_transparent.png"],
+    apple: ["/favicon_bleu_nuit.png"],
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="text-white min-h-screen bg-[#0b1220]">
+      <body
+        className="
+          relative 
+          overflow-x-hidden 
+          text-white 
+          min-h-screen 
+          bg-[#0b1220] 
+          font-inter
+        "
+      >
+        {/* === Fond Horizon (image statique) === */}
         <div
+          className="fixed inset-0 -z-10"
           style={{
             backgroundImage: "url('/background_horizon.png')",
             backgroundSize: "cover",
             backgroundPosition: "center bottom",
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
-            height: "100vh",
-            width: "100%",
           }}
         ></div>
+
+        {/* === Contenu global du site === */}
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+
+          <main className="flex-grow">{children}</main>
+
+          <Footer />
+        </div>
+
+        {/* === Effets lumineux PFOTC === */}
+        <div className="horizon"></div>
+        <div className="horizon-line"></div>
       </body>
     </html>
   );
