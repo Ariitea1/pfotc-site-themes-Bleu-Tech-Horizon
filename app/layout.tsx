@@ -20,18 +20,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body
-        style={{
-          backgroundImage: "url('/background_horizon.png')",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center bottom",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-          backgroundColor: "#0b1220", // couleur de secours
-          color: "white",
-          minHeight: "100vh",
-          overflowX: "hidden",
-          margin: 0,
-        }}
+        className="
+          relative
+          overflow-x-hidden
+          text-white
+          min-h-screen
+          bg-[#0b1220]
+          bg-[url('/background_horizon.png')]
+          bg-no-repeat
+          bg-cover
+          bg-center
+          bg-fixed
+          bg-bottom
+        "
       >
         <div className="relative z-10">
           <Header />
