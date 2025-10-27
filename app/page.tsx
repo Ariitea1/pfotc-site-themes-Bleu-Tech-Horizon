@@ -1,63 +1,75 @@
-export default function Page() {
+"use client";
+
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#041e3a] via-[#052d5c] to-[#02101f] text-white flex flex-col items-center justify-center pt-32 px-6">
-      
-      {/* HERO */}
-      <section className="text-center max-w-3xl">
-        <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-          Pacific Flight Operations<br />
-          <span className="text-cyan-400">& Training Center</span>
-        </h2>
-        <p className="mt-6 text-lg text-slate-300">
+    <main className="flex flex-col items-center justify-center text-center px-6 py-20 md:py-32">
+      {/* ======================= HERO SECTION ======================= */}
+      <section className="max-w-5xl">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Pacific Flight Operations <br />
+          <span className="text-gradient">& Training Center</span>
+        </h1>
+
+        <p className="text-lg md:text-xl text-gray-300 mb-10">
           Expertise, Formation & Innovation au service des opérations aériennes.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <a
-            href="/formations"
-            className="px-6 py-3 bg-cyan-500 text-[#0b1220] font-medium rounded-xl hover:bg-cyan-400 transition"
-          >
+        {/* === Boutons avec halos === */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <button className="btn-halo btn-primary px-6 py-3 text-lg rounded-lg shadow-md">
             Découvrir les formations
-          </a>
-          <a
-            href="/services"
-            className="px-6 py-3 border border-white/20 rounded-xl hover:bg-white/10 transition"
-          >
+          </button>
+          <button className="btn-halo btn-secondary px-6 py-3 text-lg rounded-lg shadow-md">
             Voir les services
-          </a>
+          </button>
         </div>
       </section>
 
-      {/* CARTES */}
-      <section className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-5xl">
-        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
-          <div className="text-cyan-400 mb-3 text-2xl">🛫</div>
-          <h3 className="font-semibold text-lg mb-2">Flight Operations Services</h3>
-          <p className="text-slate-300 text-sm">
-            OCC, Dispatch, Loadsheet – supervision 24/7 et solutions remote.
-          </p>
+      {/* ======================= SERVICES SECTION ======================= */}
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-6xl w-full">
+        {/* === CARD 1 === */}
+        <div className="card-glow p-6 bg-[#0b1220]/50 backdrop-blur-sm hover:backdrop-blur-lg transition duration-300">
+          <div className="flex flex-col items-center text-center">
+            <div className="text-3xl mb-3">✈️</div>
+            <h3 className="font-semibold text-lg mb-2">
+              Flight Operations Services
+            </h3>
+            <p className="text-gray-300 text-sm">
+              OCC, Dispatch, Loadsheet – supervision 24/7 et solutions remote.
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
-          <div className="text-cyan-400 mb-3 text-2xl">🎓</div>
-          <h3 className="font-semibold text-lg mb-2">Training & CBTA Modules</h3>
-          <p className="text-slate-300 text-sm">
-            Initial, recurrent, CBTA – conformité EASA/ICAO.
-          </p>
+        {/* === CARD 2 === */}
+        <div className="card-glow p-6 bg-[#0b1220]/50 backdrop-blur-sm hover:backdrop-blur-lg transition duration-300">
+          <div className="flex flex-col items-center text-center">
+            <div className="text-3xl mb-3">🎓</div>
+            <h3 className="font-semibold text-lg mb-2">
+              Training & CBTA Modules
+            </h3>
+            <p className="text-gray-300 text-sm">
+              Initial, recurrent, CBTA – conformité EASA/ICAO.
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-b from-[#092a50]/70 to-[#0b2547]/40 border border-cyan-400/10 p-6 text-center hover:border-cyan-400/40 transition-all">
-          <div className="text-cyan-400 mb-3 text-2xl">🌐</div>
-          <h3 className="font-semibold text-lg mb-2">Consulting & Partnerships</h3>
-          <p className="text-slate-300 text-sm">
-            OMD, MEL/ETOPS, DAC, Ferry – expertise opérationnelle.
-          </p>
+        {/* === CARD 3 === */}
+        <div className="card-glow p-6 bg-[#0b1220]/50 backdrop-blur-sm hover:backdrop-blur-lg transition duration-300">
+          <div className="flex flex-col items-center text-center">
+            <div className="text-3xl mb-3">🌐</div>
+            <h3 className="font-semibold text-lg mb-2">
+              Consulting & Partnerships
+            </h3>
+            <p className="text-gray-300 text-sm">
+              OMD, MEL/ETOPS, DAC, Ferry – expertise opérationnelle.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="mt-20 text-center text-slate-400 text-sm pb-8">
-        © PFOTC — Powered by <span className="text-cyan-400">Ariitea Frogier</span>
+      {/* ======================= FOOTER MINI-LINE ======================= */}
+      <footer className="mt-20 text-sm text-gray-500">
+        © PFOTC — Powered by <span className="text-gradient">Ariitea Frogier</span>
       </footer>
     </main>
   );
