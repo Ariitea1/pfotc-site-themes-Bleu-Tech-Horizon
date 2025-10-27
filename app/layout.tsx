@@ -21,24 +21,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="fr">
       <body
         className="
-          relative
-          overflow-x-hidden
-          text-white
-          min-h-screen
-          bg-[#0b1220]
-          bg-[url('/background_horizon.png')]
-          bg-no-repeat
-          bg-cover
-          bg-center
-          bg-fixed
+          relative 
+          overflow-x-hidden 
+          text-white 
+          min-h-screen 
+          bg-[#0b1220] 
+          bg-[url('/background_horizon.png')] 
+          bg-no-repeat 
+          bg-cover 
+          bg-center 
+          bg-fixed 
           bg-bottom
         "
       >
+        {/* Conteneur global du contenu */}
         <div className="relative z-10">
           <Header />
           <main>{children}</main>
           <Footer />
         </div>
+
+        {/* Halo et ligne lumineuse – Horizon animé */}
+        <div className="horizon"></div>
+        <div className="horizon-line"></div>
       </body>
     </html>
   );
