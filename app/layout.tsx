@@ -19,15 +19,25 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      {/* 👉 Applique l'image de fond via la classe body-horizon */}
-      <body className="body-horizon">
-        {/* Enlève les halos/overlays qui masquent l'image */}
-        {/* <div className="halo" /> */}
-        {/* <div className="aura" /> */}
-
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body
+        style={{
+          backgroundImage: "url('/background_horizon.png')",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center bottom",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundColor: "#0b1220", // couleur de secours
+          color: "white",
+          minHeight: "100vh",
+          overflowX: "hidden",
+          margin: 0,
+        }}
+      >
+        <div className="relative z-10">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
