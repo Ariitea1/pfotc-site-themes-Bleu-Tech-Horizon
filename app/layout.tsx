@@ -20,20 +20,11 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body
-        className="
-          relative
-          overflow-x-hidden
-          text-white
-          min-h-screen
-          bg-[#0b1220]
-          font-inter
-        "
-      >
-        {/* Fond horizon BLEU (image uniquement) */}
-        <div className="bg-horizon" />
+      <body className="relative text-white min-h-screen overflow-x-hidden font-inter bg-[#0b1220]">
+        {/* === FOND HORIZON === */}
+        <div className="background-horizon"></div>
 
-        {/* Contenu du site au-dessus du fond */}
+        {/* === CONTENU DU SITE === */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>
