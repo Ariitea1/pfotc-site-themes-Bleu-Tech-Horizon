@@ -21,6 +21,21 @@ body {
 }
 
 /* =========================================================
+   🌅 Fond d'écran horizon PFOTC
+   ========================================================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/background_horizon.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: -2; /* Derrière tout */
+  opacity: 1;  /* Pleine intensité du fond */
+}
+
+/* =========================================================
    🌌 Effet de halo et horizon lumineux PFOTC
    ========================================================= */
 
