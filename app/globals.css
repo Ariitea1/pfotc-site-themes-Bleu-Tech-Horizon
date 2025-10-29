@@ -1,90 +1,221 @@
-"use client";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-
-export default function Header() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-        
-        {/* LOGO PFOTC */}
-        <Link href="/" className="flex items-center gap-3 group relative">
-          
-          {/* HALO ANIMÉ */}
-          <div
-            className={`absolute -inset-3 rounded-full bg-cyan-400/10 blur-xl transition-all duration-1000 ${
-              loaded ? "opacity-80 animate-pulse-slow" : "opacity-0 scale-75"
-            }`}
-          />
-
-          {/* SONAR LUMINEUX */}
-          <div
-            className={`absolute inset-0 rounded-full border border-cyan-300/30 scale-50 opacity-0 ${
-              loaded ? "animate-sonar" : ""
-            }`}
-          />
-
-          {/* LOGO PRINCIPAL */}
-          <div
-            className={`relative z-10 transition-all duration-1000 ease-out ${
-              loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,200,255,0.4)]"
-                : "opacity-0 scale-75"
-            } group-hover:-translate-y-0.5`}
-          >
-            <Image
-              src="/favicon_bleu_nuit.png"
-              alt="PFOTC Logo"
-              width={52}
-              height={52}
-              priority
-            />
-          </div>
-
-          {/* TEXTE PFOTC + sous-titre */}
-          <div
-            className={`ml-2 transition-all duration-1000 delay-300 ${
-              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
-          >
-            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
-              PFOTC
-            </h1>
-            <p className="text-slate-400 text-sm leading-tight">
-              Pacific Flight Operations & Training Center
-            </p>
-          </div>
-        </Link>
-
-        {/* NAVIGATION */}
-        <nav
-          className={`hidden md:flex gap-8 text-slate-300 text-sm transition-all duration-1000 delay-500 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Link href="/" className="hover:text-white transition-colors">
-            Accueil
-          </Link>
-          <Link href="/formations" className="hover:text-white transition-colors">
-            Formations
-          </Link>
-          <Link href="/services" className="hover:text-white transition-colors">
-            Services
-          </Link>
-          <Link href="/contact" className="hover:text-white transition-colors">
-            Contact
-          </Link>
-        </nav>
-      </div>
-    </header>
-  );
+/* =========================================================
+   🎨 Couleur et typographie de base PFOTC
+   ========================================================= */
+:root {
+  --bg: #0b1220;
+  --text-color: rgb(226 232 240);
 }
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   🌌 Effet de halo et horizon lumineux PFOTC
+   ========================================================= */
+
+/* -- Conteneur du halo et du liseré lumineux -- */
+.horizon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 200, 255, 0.35) 0%,
+    rgba(0, 140, 255, 0.25) 30%,
+    rgba(0, 60, 120, 0.15) 70%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: horizonPulse 18s ease-in-out infinite;
+}
+
+/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
+.horizon-line {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 180, 255, 0) 0%,
+    rgba(0, 240, 255, 0.9) 40%,
+    rgba(0, 240, 255, 0.9) 60%,
+    rgba(0, 180, 255, 0) 100%
+  );
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
+              0 0 60px rgba(0, 200, 255, 0.3);
+  animation: lineFlow 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* =========================================================
+   🌠 Halo central – bloc Hero PFOTC (derrière le titre)
+   ========================================================= */
+.hero-halo {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 850px;
+  height: 320px;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 240, 255, 0.35) 0%,
+    rgba(0, 180, 255, 0.25) 40%,
+    rgba(0, 120, 255, 0.15) 70%,
+    transparent 100%
+  );
+  filter: blur(90px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+  animation: heroPulse 6s ease-in-out infinite;
+}
+
+/* =========================================================
+   💡 Effet Halo autour des cartes de services
+   ========================================================= */
+.card-glow {
+  box-shadow: 0 0 45px rgba(0, 200, 255, 0.3),
+              0 0 85px rgba(0, 200, 255, 0.15),
+              inset 0 0 25px rgba(0, 200, 255, 0.08);
+  border: 1px solid rgba(0, 180, 255, 0.25);
+  border-radius: 1rem;
+  background-color: rgba(11, 18, 32, 0.9);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 70px rgba(0, 240, 255, 0.4),
+              0 0 120px rgba(0, 240, 255, 0.25),
+              inset 0 0 40px rgba(0, 200, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   🔵 Boutons PFOTC – version double bleue harmonisée
+   ========================================================= */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.75rem;
+  color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Premier bouton – bleu clair lumineux */
+.btn-primary {
+  background: linear-gradient(90deg, #00c6ff, #0070f3);
+  box-shadow:
+    0 0 25px rgba(0, 200, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 40px rgba(0, 230, 255, 0.6),
+    0 0 70px rgba(0, 200, 255, 0.35),
+    inset 0 0 15px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Second bouton – bleu plus profond avec effet verre */
+.btn-secondary {
+  background: linear-gradient(90deg, #0052a5, #0078ff);
+  box-shadow:
+    0 0 25px rgba(0, 120, 255, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.08);
+  opacity: 0.95;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #0080ff, #00bfff);
+  box-shadow:
+    0 0 40px rgba(0, 200, 255, 0.5),
+    0 0 70px rgba(0, 160, 255, 0.3),
+    inset 0 0 15px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   ✨ Animations
+   ========================================================= */
+
+/* Halo qui respire lentement (bas) */
+@keyframes horizonPulse {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+/* Ligne lumineuse subtilement mouvante */
+@keyframes lineFlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+    filter: blur(1px);
+  }
+}
+
+/* Animation du halo central (hero) */
+@keyframes heroPulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+/* =========================================================
+   🌐 Utilitaires additionnels
+   ========================================================= */
+
+.animate-pulse-slow {
+  animation: horizonPulse 14s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00e0ff, #0070f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   🧭 Fin du globals.css PFOTC
+   ========================================================= */
