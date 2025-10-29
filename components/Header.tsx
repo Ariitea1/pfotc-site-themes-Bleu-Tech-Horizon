@@ -18,51 +18,42 @@ export default function Header() {
         
         {/* LOGO PFOTC */}
         <Link href="/" className="flex items-center gap-3 group relative">
-          
-          {/* HALO ANIMÉ DERRIÈRE LE LOGO */}
+          {/* Halo bleu doux */}
           <div
-            className={`absolute -inset-4 rounded-full bg-cyan-400/10 blur-xl transition-all duration-1000 ${
-              loaded ? "opacity-80 animate-pulse-slow" : "opacity-0 scale-75"
+            className={`absolute -inset-6 rounded-full bg-cyan-400/10 blur-2xl transition-all duration-1000 ${
+              loaded ? "opacity-80" : "opacity-0 scale-75"
             }`}
           />
 
-          {/* SONAR LUMINEUX */}
-          <div
-            className={`absolute inset-0 rounded-full border border-cyan-300/30 scale-50 opacity-0 ${
-              loaded ? "animate-sonar" : ""
-            }`}
-          />
-
-          {/* LOGO PFOTC (favicon bleu nuit) */}
+          {/* LOGO */}
           <div
             className={`relative z-10 transition-all duration-1000 ease-out ${
               loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,200,255,0.4)]"
+                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]"
                 : "opacity-0 scale-75"
-            } group-hover:scale-[1.03]`}
+            }`}
           >
             <Image
-              src="/favicon_bleu_nuit.png"
+              src="/pfotc-logo-simple.png" // ✅ logo carré version bleue foncée
               alt="PFOTC Logo"
-              width={52}
-              height={52}
+              width={50}
+              height={50}
               priority
-              className="rounded-lg transition-transform duration-500"
+              className="rounded-md"
             />
           </div>
 
-          {/* TEXTE PFOTC + sous-titre */}
-          <div
-            className={`ml-2 transition-all duration-1000 delay-300 ${
-              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
-          >
-            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
+          {/* Texte PFOTC + sous-titre */}
+          <div className="flex flex-col leading-tight">
+            <span className="text-white font-semibold text-lg tracking-tight">
               PFOTC
-            </h1>
-            <p className="text-slate-400 text-sm leading-tight">
+            </span>
+            <span className="text-slate-300 text-sm">
               Pacific Flight Operations & Training Center
-            </p>
+            </span>
+            <span className="text-cyan-400 text-xs mt-0.5">
+              Integrated Flight Operations
+            </span>
           </div>
         </Link>
 
