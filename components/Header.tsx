@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="w-full bg-[#0a0f1f] text-white shadow-md">
+    <header className="relative z-20 w-full bg-[#0a0f1f] text-white shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* LOGO + TEXTE */}
         <div className="flex items-center space-x-3">
@@ -32,26 +32,26 @@ export default function Header() {
         {/* NAVIGATION */}
         <nav className="flex space-x-8 text-sm font-medium">
           <Link
-            href="#"
-            className="hover:text-cyan-400 transition-colors duration-200"
+            href="/"
+            className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
           >
             Accueil
           </Link>
           <Link
-            href="#"
-            className="hover:text-cyan-400 transition-colors duration-200"
+            href="/formations"
+            className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
           >
             Formations
           </Link>
           <Link
-            href="#"
-            className="hover:text-cyan-400 transition-colors duration-200"
+            href="/services"
+            className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
           >
             Services
           </Link>
           <Link
-            href="#"
-            className="hover:text-cyan-400 transition-colors duration-200"
+            href="/contact"
+            className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
           >
             Contact
           </Link>
