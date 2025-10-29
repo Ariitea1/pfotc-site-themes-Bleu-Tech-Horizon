@@ -2,70 +2,59 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Header() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 300);
-    return () => clearTimeout(t);
-  }, []);
-
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-        
-        {/* LOGO + TITRE */}
-        <Link href="/" className="flex items-center gap-3 group relative">
-          {/* halo discret derrière l’icône */}
-          <div
-            className={`absolute -inset-4 rounded-full bg-cyan-400/10 blur-xl transition-all duration-700 ${
-              loaded ? "opacity-80" : "opacity-0 scale-95"
-            }`}
-            aria-hidden="true"
-          />
-          <div
-            className={`relative z-10 transition-all duration-700 ${
-              loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_18px_rgba(0,200,255,0.35)]"
-                : "opacity-0 scale-90"
-            }`}
-          >
-            {/* ✅ bon fichier : favicon_bleu_nuit.png */}
+    <header className="w-full bg-[#0a0f1f] text-white shadow-md">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* LOGO + TEXTE */}
+        <div className="flex items-center space-x-3">
+          <div className="relative">
             <Image
               src="/favicon_bleu_nuit.png"
-              alt="PFOTC"
-              width={52}
-              height={52}
-              priority
+              alt="PFOTC Logo"
+              width={44}
+              height={44}
+              className="drop-shadow-[0_0_6px_rgba(0,180,255,0.4)]"
             />
           </div>
-
-          {/* Texte PFOTC + sous-titres */}
           <div className="flex flex-col leading-tight">
-            <span className="text-white font-semibold text-lg tracking-tight">
-              PFOTC
-            </span>
-            <span className="text-slate-300 text-sm">
+            <span className="font-semibold text-white text-lg">PFOTC</span>
+            <span className="text-sm text-gray-300">
               Pacific Flight Operations & Training Center
             </span>
-            <span className="text-cyan-400 text-xs font-medium mt-[2px]">
+            <span className="text-xs text-cyan-400">
               Integrated Flight Operations
             </span>
           </div>
-        </Link>
+        </div>
 
-        {/* NAV */}
-        <nav
-          className={`hidden md:flex gap-8 text-slate-300 text-sm transition-opacity duration-700 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
-          <Link href="/formations" className="hover:text-white transition-colors">Formations</Link>
-          <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+        {/* NAVIGATION */}
+        <nav className="flex space-x-8 text-sm font-medium">
+          <Link
+            href="#"
+            className="hover:text-cyan-400 transition-colors duration-200"
+          >
+            Accueil
+          </Link>
+          <Link
+            href="#"
+            className="hover:text-cyan-400 transition-colors duration-200"
+          >
+            Formations
+          </Link>
+          <Link
+            href="#"
+            className="hover:text-cyan-400 transition-colors duration-200"
+          >
+            Services
+          </Link>
+          <Link
+            href="#"
+            className="hover:text-cyan-400 transition-colors duration-200"
+          >
+            Contact
+          </Link>
         </nav>
       </div>
     </header>
