@@ -25,7 +25,7 @@ export default function Header() {
             }`}
           />
 
-          {/* Logo image */}
+          {/* ✅ Logo d'origine restauré */}
           <div
             className={`relative z-10 transition-all duration-1000 ease-out ${
               loaded
@@ -34,12 +34,12 @@ export default function Header() {
             }`}
           >
             <Image
-              src="/pfotc-logo-simple.png" // ✅ logo carré
+              src="/pfotc-logo.png" // ✅ ancien chemin correct
               alt="PFOTC Logo"
-              width={48}
-              height={48}
+              width={160}
+              height={60}
               priority
-              className="rounded-md"
+              className="transition-transform duration-500"
             />
           </div>
 
