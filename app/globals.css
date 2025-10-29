@@ -38,68 +38,27 @@ body {
   );
   filter: blur(50px);
   opacity: 0.8;
-  animation: horizonPulse 14s ease-in-out infinite;
   z-index: 0;
 }
 
-@keyframes horizonPulse {
-  0%, 100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.95;
-    transform: scale(1.05);
-  }
-}
-
 /* =========================================================
-   💠 Cartes translucides "OCC Glass Effect"
+   💠 Cartes translucides OCC BLEU STABLE
    ========================================================= */
 .card-pfotc {
   position: relative;
-  background: rgba(11, 18, 32, 0.35); /* plus transparent */
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(0, 200, 255, 0.12);
+  background: rgba(11, 18, 32, 0.45); /* Bleu OCC pur, légèrement translucide */
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 200, 255, 0.15);
   border-radius: 1rem;
-  box-shadow: 0 0 25px rgba(0, 200, 255, 0.06);
-  transition: all 0.4s ease;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.08);
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .card-pfotc:hover {
-  background: rgba(11, 18, 32, 0.45);
-  box-shadow: 0 0 40px rgba(0, 200, 255, 0.15);
+  background: rgba(11, 18, 32, 0.55);
+  box-shadow: 0 0 35px rgba(0, 200, 255, 0.18);
   transform: translateY(-3px);
-}
-
-/* 🌫 Reflet animé subtil sur les cartes */
-.card-pfotc::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(0, 200, 255, 0.12) 50%,
-    transparent 100%
-  );
-  animation: lightSweep 15s linear infinite;
-}
-
-@keyframes lightSweep {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 120%;
-  }
-  100% {
-    left: 120%;
-  }
 }
 
 /* =========================================================
@@ -115,7 +74,7 @@ body {
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 }
 
 .btn-pfotc:hover {
@@ -133,10 +92,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.animate-pulse-slow {
-  animation: horizonPulse 14s ease-in-out infinite;
-}
-
 /* =========================================================
    ⚡ Petites utilités globales PFOTC
    ========================================================= */
@@ -150,5 +105,5 @@ body {
 }
 
 /* =========================================================
-   🧭 Fin du globals.css PFOTC
+   🧭 Fin du globals.css PFOTC (bleu OCC stable)
    ========================================================= */
