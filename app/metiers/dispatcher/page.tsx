@@ -3,7 +3,7 @@
 export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
-      {/* Effet horizon */}
+      {/* --- Effet horizon lumineux --- */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
@@ -12,42 +12,51 @@ export default function DispatcherPage() {
             "radial-gradient(1200px 300px at 50% 65%, rgba(0,160,255,.25), rgba(0,160,255,0) 60%), linear-gradient(#0d1a2b, #071021 35%)",
         }}
       />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 right-0 z-0"
+        style={{
+          top: "56%",
+          height: "2px",
+          boxShadow: "0 0 18px rgba(0,180,255,.7)",
+          background: "rgba(0,180,255,.35)",
+        }}
+      />
 
+      {/* --- Contenu principal --- */}
       <div className="relative z-10 px-6 py-24 max-w-5xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">
           Flight Dispatcher
         </h1>
-        <p className="text-gray-300 mb-8 leading-relaxed">
-          Le Flight Dispatcher, ou Agent d’Opérations, est le cœur du contrôle
-          des opérations aériennes. Il prépare les vols, analyse les conditions
-          météo et techniques, planifie le carburant et suit les vols en temps réel.
+
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong> 
+          <br />
+          Le Flight Dispatcher (ou Agent d’Opérations Aériennes) est la{" "}
+          <span className="text-cyan-400 font-medium">sentinelle des opérations</span>.
+          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion, 
+          le routing et les performances afin d’élaborer un plan de vol sûr, économique 
+          et conforme à la réglementation.
         </p>
 
-        <h2 className="text-2xl font-semibold text-white mb-3">Missions principales</h2>
-        <ul className="list-disc list-inside text-gray-400 space-y-2 mb-8">
-          <li>Préparer les plans de vol et calculs carburant</li>
-          <li>Analyser la météo, les NOTAMs et les performances avion</li>
-          <li>Assurer le suivi des vols et la coordination OCC</li>
-          <li>Assister le commandant de bord avant et pendant le vol</li>
-        </ul>
-
-        <h2 className="text-2xl font-semibold text-white mb-3">Formation PFOTC</h2>
-        <p className="text-gray-300 leading-relaxed mb-6">
-          La formation Flight Dispatcher PFOTC repose sur les standards
-          internationaux (ICAO, EASA) et l’approche CBTA.
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO), 
+          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque 
+          mission aérienne.
         </p>
 
-        <ul className="list-disc list-inside text-gray-400 space-y-2 mb-8">
-          <li>OMC / OMA / Réglementation internationale</li>
-          <li>Planification et suivi de vol</li>
-          <li>Performance, masse et centrage</li>
-          <li>Communication opérationnelle & Human Factors</li>
-        </ul>
-
-        <p className="text-gray-400 text-sm italic">
-          Durée : 6 à 10 semaines — Lieu : Tahiti, Pacific Hub PFOTC
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur 
+          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que 
+          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures 
+          conditions de vol.
         </p>
 
+        <blockquote className="mt-10 text-cyan-400 text-lg italic border-l-4 border-cyan-400 pl-4">
+          PFOTC forme ces femmes et ces hommes de l’ombre, garants du ciel et du lien entre la terre et le vol.
+        </blockquote>
+
+        {/* --- Footer mini --- */}
         <footer className="mt-20 text-sm text-gray-500 text-center">
           © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
         </footer>
