@@ -8,43 +8,42 @@ export default function Header() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoaded(true), 300);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setLoaded(true), 300);
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#0b1220]/95 backdrop-blur-sm border-b border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
         
-        {/* LOGO PFOTC */}
+        {/* LOGO + TITRE */}
         <Link href="/" className="flex items-center gap-3 group relative">
-          {/* Halo bleu doux */}
+          {/* halo discret derrière l’icône */}
           <div
-            className={`absolute -inset-6 rounded-full bg-cyan-400/10 blur-2xl transition-all duration-1000 ${
-              loaded ? "opacity-80" : "opacity-0 scale-75"
+            className={`absolute -inset-4 rounded-full bg-cyan-400/10 blur-xl transition-all duration-700 ${
+              loaded ? "opacity-80" : "opacity-0 scale-95"
             }`}
+            aria-hidden="true"
           />
-
-          {/* ✅ Logo d'origine restauré */}
           <div
-            className={`relative z-10 transition-all duration-1000 ease-out ${
+            className={`relative z-10 transition-all duration-700 ${
               loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]"
-                : "opacity-0 scale-75"
+                ? "opacity-100 scale-100 drop-shadow-[0_0_18px_rgba(0,200,255,0.35)]"
+                : "opacity-0 scale-90"
             }`}
           >
+            {/* ✅ bon fichier : favicon_bleu_nuit.png */}
             <Image
-              src="/pfotc-logo.png" // ✅ ancien chemin correct
-              alt="PFOTC Logo"
-              width={160}
-              height={60}
+              src="/favicon_bleu_nuit.png"
+              alt="PFOTC"
+              width={52}
+              height={52}
               priority
-              className="transition-transform duration-500"
             />
           </div>
 
           {/* Texte PFOTC + sous-titres */}
-          <div className="flex flex-col leading-tight justify-center">
+          <div className="flex flex-col leading-tight">
             <span className="text-white font-semibold text-lg tracking-tight">
               PFOTC
             </span>
@@ -57,24 +56,16 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* NAVIGATION */}
+        {/* NAV */}
         <nav
-          className={`hidden md:flex gap-8 text-slate-300 text-sm transition-all duration-1000 delay-500 ${
+          className={`hidden md:flex gap-8 text-slate-300 text-sm transition-opacity duration-700 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Link href="/" className="hover:text-white transition-colors">
-            Accueil
-          </Link>
-          <Link href="/formations" className="hover:text-white transition-colors">
-            Formations
-          </Link>
-          <Link href="/services" className="hover:text-white transition-colors">
-            Services
-          </Link>
-          <Link href="/contact" className="hover:text-white transition-colors">
-            Contact
-          </Link>
+          <Link href="/" className="hover:text-white transition-colors">Accueil</Link>
+          <Link href="/formations" className="hover:text-white transition-colors">Formations</Link>
+          <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
         </nav>
       </div>
     </header>
