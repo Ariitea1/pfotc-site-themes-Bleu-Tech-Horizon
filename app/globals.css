@@ -1,57 +1,137 @@
-import "./globals.css";
-import { ReactNode } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-export const metadata = {
-  title: "PFOTC – Pacific Flight Operations & Training Center",
-  description:
-    "Expertise, Formation et Innovation au service des opérations aériennes.",
-  icons: {
-    icon: [
-      { url: "/favicon_transparent.png", type: "image/png" },
-      { url: "/favicon_bleu_nuit.png", type: "image/png" },
-    ],
-    shortcut: ["/favicon_transparent.png"],
-    apple: ["/favicon_bleu_nuit.png"],
-  },
-};
-
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="fr">
-      <body
-        className="
-          relative 
-          overflow-x-hidden 
-          text-white 
-          min-h-screen 
-          bg-[#0b1220] 
-          bg-[url('/background_horizon.png')] 
-          bg-no-repeat 
-          bg-cover 
-          bg-center 
-          bg-fixed 
-          bg-bottom
-        "
-      >
-        {/* ======= CONTENU GLOBAL ======= */}
-        <div className="relative z-10">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-
-        {/* ======= HALO ET LISERÉ D'HORIZON ======= */}
-        <div className="horizon animate-pulse-slow"></div>
-        <div
-          className="
-            fixed bottom-[60px] left-0 w-full h-[2px]
-            bg-gradient-to-r from-transparent via-cyan-300/90 to-transparent
-            blur-sm opacity-80
-          "
-        ></div>
-      </body>
-    </html>
-  );
+/* =========================================================
+   🎨 Couleur et typographie de base PFOTC
+   ========================================================= */
+:root {
+  --bg: #0b1220;
+  --text-color: rgb(226 232 240);
 }
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   🌌 Effet de halo et horizon lumineux PFOTC
+   ========================================================= */
+
+/* -- Conteneur du halo et du liseré lumineux -- */
+.horizon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 200, 255, 0.35) 0%,
+    rgba(0, 140, 255, 0.25) 30%,
+    rgba(0, 60, 120, 0.15) 70%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   🔵 Boutons PFOTC (harmonisés avec les cartes)
+   ========================================================= */
+
+.btn-pfotc {
+  background: rgba(0, 150, 255, 0.15);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  color: #e0f7ff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.btn-pfotc:hover {
+  background: rgba(0, 180, 255, 0.25);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   ✨ Cartes transparentes (services / formations)
+   ========================================================= */
+
+.card-pfotc {
+  background: rgba(10, 20, 40, 0.75);
+  border: 1px solid rgba(0, 200, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(0, 100, 200, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+}
+
+.card-pfotc:hover {
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 35px rgba(0, 200, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   🌠 Animations lumineuses
+   ========================================================= */
+
+/* Halo doux */
+@keyframes horizonPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+    filter: blur(1px);
+  }
+}
+
+/* Animation sonar (halo autour du logo) */
+@keyframes sonar {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* =========================================================
+   🌐 Utilitaires additionnels
+   ========================================================= */
+
+.animate-pulse-slow {
+  animation: horizonPulse 14s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #00e0ff, #0070f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   🧭 Fin du globals.css PFOTC
+   ========================================================= */
