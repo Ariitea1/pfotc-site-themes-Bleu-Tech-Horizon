@@ -43,81 +43,52 @@ body {
   z-index: 0;
 }
 
-/* Halo derrière le logo */
-.halo {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(0, 200, 255, 0.4), transparent 70%);
-  filter: blur(25px);
-  opacity: 0.85;
-  z-index: -1;
-  animation: horizonPulse 14s ease-in-out infinite;
+/* =========================================================
+   🔵 Boutons PFOTC (harmonisés avec les cartes)
+   ========================================================= */
+
+.btn-pfotc {
+  background: rgba(0, 150, 255, 0.15);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  color: #e0f7ff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.btn-pfotc:hover {
+  background: rgba(0, 180, 255, 0.25);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
+  transform: translateY(-2px);
 }
 
 /* =========================================================
-   🌠 Section hero et ambiance générale
+   ✨ Cartes transparentes (services / formations)
    ========================================================= */
-.hero {
-  position: relative;
-  text-align: center;
-  padding-top: 8rem;
-  padding-bottom: 6rem;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 40, 90, 0.6) 0%,
-    rgba(5, 20, 40, 1) 100%
-  );
-  overflow: hidden;
+
+.card-pfotc {
+  background: rgba(10, 20, 40, 0.75);
+  border: 1px solid rgba(0, 200, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(0, 100, 200, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
 }
 
-/* Halo central doux */
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(0, 180, 255, 0.3), transparent 70%);
-  filter: blur(120px);
-  z-index: 0;
-  animation: heroPulse 20s ease-in-out infinite;
-}
-
-/* Texte du hero */
-.hero h1 {
-  position: relative;
-  z-index: 1;
-  font-weight: 800;
-  font-size: 3rem;
-  line-height: 1.2;
-  color: #fff;
-}
-
-.hero h1 span {
-  background: linear-gradient(90deg, #00e0ff, #0070f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-  position: relative;
-  z-index: 1;
-  color: #a0c4ff;
-  font-size: 1.1rem;
-  margin-top: 1rem;
+.card-pfotc:hover {
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 35px rgba(0, 200, 255, 0.3);
+  transform: translateY(-4px);
 }
 
 /* =========================================================
-   💡 Animations lumineuses PFOTC
+   🌠 Animations lumineuses
    ========================================================= */
 
-/* Animation du halo dans le header */
+/* Halo doux */
 @keyframes horizonPulse {
   0%, 100% {
     opacity: 0.7;
@@ -131,21 +102,26 @@ body {
   }
 }
 
-/* Animation du halo central (hero) */
-@keyframes heroPulse {
-  0%, 100% {
-    opacity: 0.85;
-    transform: translate(-50%, -50%) scale(1);
+/* Animation sonar (halo autour du logo) */
+@keyframes sonar {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.5);
   }
   50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.04);
+    opacity: 0.1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
   }
 }
 
 /* =========================================================
    🌐 Utilitaires additionnels
    ========================================================= */
+
 .animate-pulse-slow {
   animation: horizonPulse 14s ease-in-out infinite;
 }
