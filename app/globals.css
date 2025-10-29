@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* =========================================================
-   🎨 Couleur et typographie de base PFOTC
+   🎨 Couleurs & Typographie PFOTC
    ========================================================= */
 :root {
   --bg: #0b1220;
@@ -21,115 +21,132 @@ body {
 }
 
 /* =========================================================
-   🌌 Effet de halo et horizon lumineux PFOTC
+   🌌 Horizon & Halo Lumineux PFOTC
    ========================================================= */
-
-/* -- Conteneur du halo et du liseré lumineux -- */
 .horizon {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 220px;
   background: linear-gradient(
     to top,
     rgba(0, 200, 255, 0.35) 0%,
-    rgba(0, 140, 255, 0.25) 30%,
+    rgba(0, 140, 255, 0.25) 35%,
     rgba(0, 60, 120, 0.15) 70%,
     transparent 100%
   );
-  filter: blur(40px);
-  pointer-events: none;
+  filter: blur(50px);
+  opacity: 0.8;
+  animation: horizonPulse 14s ease-in-out infinite;
   z-index: 0;
 }
 
-/* =========================================================
-   🔵 Boutons PFOTC (harmonisés avec les cartes)
-   ========================================================= */
+@keyframes horizonPulse {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
 
+/* =========================================================
+   💠 Cartes translucides "OCC Glass Effect"
+   ========================================================= */
+.card-pfotc {
+  position: relative;
+  background: rgba(11, 18, 32, 0.35); /* plus transparent */
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 200, 255, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.06);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.card-pfotc:hover {
+  background: rgba(11, 18, 32, 0.45);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+/* 🌫 Reflet animé subtil sur les cartes */
+.card-pfotc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(0, 200, 255, 0.12) 50%,
+    transparent 100%
+  );
+  animation: lightSweep 15s linear infinite;
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+/* =========================================================
+   🔵 Boutons PFOTC (verre bleu lumineux)
+   ========================================================= */
 .btn-pfotc {
-  background: rgba(0, 150, 255, 0.15);
-  border: 1px solid rgba(0, 200, 255, 0.25);
+  display: inline-block;
+  background: rgba(0, 180, 255, 0.15);
   color: #e0f7ff;
-  font-weight: 600;
+  border: 1px solid rgba(0, 200, 255, 0.3);
   border-radius: 0.75rem;
   padding: 0.75rem 1.5rem;
-  backdrop-filter: blur(6px);
+  font-weight: 500;
   transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
+  backdrop-filter: blur(12px);
 }
 
 .btn-pfotc:hover {
-  background: rgba(0, 180, 255, 0.25);
-  border-color: rgba(0, 240, 255, 0.4);
-  box-shadow: 0 0 25px rgba(0, 200, 255, 0.25);
+  background: rgba(0, 200, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.2);
   transform: translateY(-2px);
 }
 
 /* =========================================================
-   ✨ Cartes transparentes (services / formations)
+   ✴️ Effets de texte & animations
    ========================================================= */
-
-.card-pfotc {
-  background: rgba(10, 20, 40, 0.75);
-  border: 1px solid rgba(0, 200, 255, 0.12);
-  border-radius: 1rem;
-  box-shadow: 0 0 25px rgba(0, 100, 200, 0.15);
-  backdrop-filter: blur(8px);
-  transition: all 0.4s ease;
+.text-gradient {
+  background: linear-gradient(90deg, #00e0ff, #0070f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
-.card-pfotc:hover {
-  border-color: rgba(0, 240, 255, 0.25);
-  box-shadow: 0 0 35px rgba(0, 200, 255, 0.3);
-  transform: translateY(-4px);
-}
-
-/* =========================================================
-   🌠 Animations lumineuses
-   ========================================================= */
-
-/* Halo doux */
-@keyframes horizonPulse {
-  0%, 100% {
-    opacity: 0.7;
-    transform: translateY(0);
-    filter: blur(0px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-1px);
-    filter: blur(1px);
-  }
-}
-
-/* Animation sonar (halo autour du logo) */
-@keyframes sonar {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.5);
-  }
-  50% {
-    opacity: 0.1;
-    transform: scale(1.2);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.8);
-  }
-}
-
-/* =========================================================
-   🌐 Utilitaires additionnels
-   ========================================================= */
 
 .animate-pulse-slow {
   animation: horizonPulse 14s ease-in-out infinite;
 }
 
-.text-gradient {
-  background: linear-gradient(90deg, #00e0ff, #0070f3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* =========================================================
+   ⚡ Petites utilités globales PFOTC
+   ========================================================= */
+.shadow-halo {
+  box-shadow: 0 0 60px rgba(0, 240, 255, 0.25);
+}
+
+.blur-glass {
+  backdrop-filter: blur(18px);
+  background: rgba(11, 18, 32, 0.4);
 }
 
 /* =========================================================
