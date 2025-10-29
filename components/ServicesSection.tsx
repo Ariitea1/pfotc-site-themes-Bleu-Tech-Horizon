@@ -39,9 +39,10 @@ export default function ServicesSection() {
 
       {/* === CARD 3 === */}
       <Link
-        href="#consulting"
-        scroll={true}
-        className="card-pfotc p-6 hover:ring-1 hover:ring-cyan-400 transition rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
+      href="/consulting"
+      className="card-pfotc p-6 hover:ring-1 hover:ring-cyan-400 transition rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
+      >
+
       >
         <div className="flex flex-col items-center text-center">
           <div className="text-3xl mb-3">🌐</div>
