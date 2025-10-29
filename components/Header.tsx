@@ -25,7 +25,7 @@ export default function Header() {
             }`}
           />
 
-          {/* LOGO */}
+          {/* Logo image */}
           <div
             className={`relative z-10 transition-all duration-1000 ease-out ${
               loaded
@@ -34,24 +34,24 @@ export default function Header() {
             }`}
           >
             <Image
-              src="/pfotc-logo-simple.png" // ✅ logo carré version bleue foncée
+              src="/pfotc-logo-simple.png" // ✅ logo carré
               alt="PFOTC Logo"
-              width={50}
-              height={50}
+              width={48}
+              height={48}
               priority
               className="rounded-md"
             />
           </div>
 
-          {/* Texte PFOTC + sous-titre */}
-          <div className="flex flex-col leading-tight">
+          {/* Texte PFOTC + sous-titres */}
+          <div className="flex flex-col leading-tight justify-center">
             <span className="text-white font-semibold text-lg tracking-tight">
               PFOTC
             </span>
             <span className="text-slate-300 text-sm">
               Pacific Flight Operations & Training Center
             </span>
-            <span className="text-cyan-400 text-xs mt-0.5">
+            <span className="text-cyan-400 text-xs font-medium mt-[2px]">
               Integrated Flight Operations
             </span>
           </div>
