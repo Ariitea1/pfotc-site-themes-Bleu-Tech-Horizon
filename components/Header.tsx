@@ -21,7 +21,7 @@ export default function Header() {
           
           {/* HALO ANIMÉ DERRIÈRE LE LOGO */}
           <div
-            className={`absolute -inset-6 rounded-full bg-cyan-400/10 blur-2xl transition-all duration-1000 ${
+            className={`absolute -inset-4 rounded-full bg-cyan-400/10 blur-xl transition-all duration-1000 ${
               loaded ? "opacity-80 animate-pulse-slow" : "opacity-0 scale-75"
             }`}
           />
@@ -33,22 +33,36 @@ export default function Header() {
             }`}
           />
 
-          {/* NOUVEAU LOGO PFOTC */}
+          {/* LOGO PFOTC (favicon bleu nuit) */}
           <div
             className={`relative z-10 transition-all duration-1000 ease-out ${
               loaded
-                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]"
+                ? "opacity-100 scale-100 drop-shadow-[0_0_20px_rgba(0,200,255,0.4)]"
                 : "opacity-0 scale-75"
             } group-hover:scale-[1.03]`}
           >
             <Image
-              src="/pfotc-logo.png" // ✅ ton nouveau logo
+              src="/favicon_bleu_nuit.png"
               alt="PFOTC Logo"
-              width={160}
-              height={60}
+              width={52}
+              height={52}
               priority
-              className="transition-transform duration-500"
+              className="rounded-lg transition-transform duration-500"
             />
+          </div>
+
+          {/* TEXTE PFOTC + sous-titre */}
+          <div
+            className={`ml-2 transition-all duration-1000 delay-300 ${
+              loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}
+          >
+            <h1 className="text-white text-lg font-bold tracking-wide leading-tight">
+              PFOTC
+            </h1>
+            <p className="text-slate-400 text-sm leading-tight">
+              Pacific Flight Operations & Training Center
+            </p>
           </div>
         </Link>
 
