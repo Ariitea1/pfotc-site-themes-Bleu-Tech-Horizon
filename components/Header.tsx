@@ -50,6 +50,12 @@ export default function Header() {
             Services
           </Link>
           <Link
+            href="/metiers"
+            className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
+          >
+            Métiers
+          </Link>
+          <Link
             href="/contact"
             className="hover:text-cyan-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
           >
