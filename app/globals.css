@@ -39,152 +39,86 @@ body {
     transparent 100%
   );
   filter: blur(40px);
-  opacity: 0.9;
   pointer-events: none;
   z-index: 0;
-  animation: horizonPulse 18s ease-in-out infinite;
 }
 
-/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
-.horizon-line {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    rgba(0, 180, 255, 0) 0%,
-    rgba(0, 240, 255, 0.9) 40%,
-    rgba(0, 240, 255, 0.9) 60%,
-    rgba(0, 180, 255, 0) 100%
-  );
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
-              0 0 60px rgba(0, 200, 255, 0.3);
-  animation: lineFlow 10s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* =========================================================
-   🌠 Halo central – bloc Hero PFOTC (derrière le titre)
-   ========================================================= */
-.hero-halo {
+/* Halo derrière le logo */
+.halo {
   position: absolute;
-  top: 38%;
+  width: 160px;
+  height: 160px;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 850px;
-  height: 320px;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 240, 255, 0.35) 0%,
-    rgba(0, 180, 255, 0.25) 40%,
-    rgba(0, 120, 255, 0.15) 70%,
-    transparent 100%
-  );
-  filter: blur(90px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 0;
-  animation: heroPulse 6s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.4), transparent 70%);
+  filter: blur(25px);
+  opacity: 0.85;
+  z-index: -1;
+  animation: horizonPulse 14s ease-in-out infinite;
 }
 
 /* =========================================================
-   💡 Effet Halo autour des cartes de services
+   🌠 Section hero et ambiance générale
    ========================================================= */
-.card-glow {
-  box-shadow: 0 0 45px rgba(0, 200, 255, 0.3),
-              0 0 85px rgba(0, 200, 255, 0.15),
-              inset 0 0 25px rgba(0, 200, 255, 0.08);
-  border: 1px solid rgba(0, 180, 255, 0.25);
-  border-radius: 1rem;
-  background-color: rgba(11, 18, 32, 0.9);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card-glow:hover {
-  box-shadow: 0 0 70px rgba(0, 240, 255, 0.4),
-              0 0 120px rgba(0, 240, 255, 0.25),
-              inset 0 0 40px rgba(0, 200, 255, 0.15);
-  transform: translateY(-4px);
-}
-
-/* =========================================================
-   🔵 Boutons PFOTC – version unifiée “Bleu Horizon”
-   ========================================================= */
-
-.btn-primary,
-.btn-secondary {
-  display: inline-block;
-  font-weight: 600;
-  border: none;
-  border-radius: 0.75rem;
-  padding: 0.75rem 1.75rem;
-  color: #ffffff;
-  transition: all 0.3s ease;
-  cursor: pointer;
+.hero {
   position: relative;
-  z-index: 1;
-
-  /* Fond principal : bleu horizon avec léger dégradé */
-  background: linear-gradient(90deg, #0052a5, #0078ff);
-  box-shadow:
-    0 0 25px rgba(0, 120, 255, 0.3),
-    inset 0 0 10px rgba(255, 255, 255, 0.08);
-  opacity: 0.97;
-}
-
-/* 🌀 Survol : éclaircissement et effet de levitation */
-.btn-primary:hover,
-.btn-secondary:hover {
-  background: linear-gradient(90deg, #0080ff, #00bfff);
-  box-shadow:
-    0 0 45px rgba(0, 200, 255, 0.55),
-    0 0 80px rgba(0, 160, 255, 0.35),
-    inset 0 0 15px rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-}
-
-/* 🌤️ Halo diffus au sol sous les boutons */
-.btn-primary::after,
-.btn-secondary::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  transform: translateX(-50%);
-  width: 85%;
-  height: 10px;
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 180, 255, 0.25) 0%,
-    rgba(0, 180, 255, 0.15) 40%,
-    transparent 100%
+    rgba(0, 40, 90, 0.6) 0%,
+    rgba(5, 20, 40, 1) 100%
   );
-  filter: blur(8px);
-  z-index: -1;
-  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Halo central doux */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 180, 255, 0.3), transparent 70%);
+  filter: blur(120px);
+  z-index: 0;
+  animation: heroPulse 20s ease-in-out infinite;
+}
+
+/* Texte du hero */
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, #00e0ff, #0070f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  color: #a0c4ff;
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 /* =========================================================
-   ✨ Animations
+   💡 Animations lumineuses PFOTC
    ========================================================= */
 
-/* Halo qui respire lentement (bas) */
+/* Animation du halo dans le header */
 @keyframes horizonPulse {
-  0%, 100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
-}
-
-/* Ligne lumineuse subtilement mouvante */
-@keyframes lineFlow {
   0%, 100% {
     opacity: 0.7;
     transform: translateY(0);
@@ -212,7 +146,6 @@ body {
 /* =========================================================
    🌐 Utilitaires additionnels
    ========================================================= */
-
 .animate-pulse-slow {
   animation: horizonPulse 14s ease-in-out infinite;
 }
