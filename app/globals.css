@@ -1,228 +1,379 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ============================================================
+   🌊 PFOTC - Global Stylesheet (Option 2 - Optimisée + Responsive)
+   Auteur  : Ariitea Frogier
+   Version : Horizon Fine + Halo Doux + Responsive
+   ============================================================ */
 
-/* =========================================================
-   🎨 Couleur et typographie de base PFOTC
-   ========================================================= */
+/* ------------------------------
+   1️⃣  BASE & TYPOGRAPHIE
+------------------------------ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
-  --bg: #0b1220;
-  --text-color: rgb(226 232 240);
+  --pfotc-blue: #009dff;
+  --pfotc-cyan: #00e5ff;
+  --pfotc-violet: #0043ff;
+  --pfotc-dark: #0b1220;
+  --pfotc-light: #e6f6ff;
+  --pfotc-gradient: linear-gradient(135deg, #00b4ff 0%, #0072ff 100%);
 }
 
 html,
 body {
-  background-color: var(--bg);
-  color: var(--text-color);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(ellipse at 50% 30%, #021633 0%, #020c1f 60%, #010a15 100%);
+  color: var(--pfotc-light);
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  min-height: 100vh;
 }
 
-/* =========================================================
-   🌌 Effet de halo et horizon lumineux PFOTC
-   ========================================================= */
-
-/* -- Conteneur du halo et du liseré lumineux -- */
-.horizon {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 200, 255, 0.35) 0%,
-    rgba(0, 140, 255, 0.25) 30%,
-    rgba(0, 60, 120, 0.15) 70%,
-    transparent 100%
-  );
-  filter: blur(40px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 0;
-  animation: horizonPulse 18s ease-in-out infinite;
-}
-
-/* 🌠 Ligne lumineuse – effet "horizon terrestre" */
-.horizon-line {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(
-    to right,
-    rgba(0, 180, 255, 0) 0%,
-    rgba(0, 240, 255, 0.9) 40%,
-    rgba(0, 240, 255, 0.9) 60%,
-    rgba(0, 180, 255, 0) 100%
-  );
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.7),
-              0 0 60px rgba(0, 200, 255, 0.3);
-  animation: lineFlow 10s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* =========================================================
-   🌠 Halo central – bloc Hero PFOTC (derrière le titre)
-   ========================================================= */
-.hero-halo {
-  position: absolute;
-  top: 38%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 850px;
-  height: 320px;
-  background: radial-gradient(
-    circle at center,
-    rgba(0, 240, 255, 0.35) 0%,
-    rgba(0, 180, 255, 0.25) 40%,
-    rgba(0, 120, 255, 0.15) 70%,
-    transparent 100%
-  );
-  filter: blur(90px);
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: 0;
-  animation: heroPulse 6s ease-in-out infinite;
-}
-
-/* =========================================================
-   💡 Effet Halo autour des cartes de services
-   ========================================================= */
-.card-glow {
-  box-shadow: 0 0 45px rgba(0, 200, 255, 0.3),
-              0 0 85px rgba(0, 200, 255, 0.15),
-              inset 0 0 25px rgba(0, 200, 255, 0.08);
-  border: 1px solid rgba(0, 180, 255, 0.25);
-  border-radius: 1rem;
-  background-color: rgba(11, 18, 32, 0.9);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card-glow:hover {
-  box-shadow: 0 0 70px rgba(0, 240, 255, 0.4),
-              0 0 120px rgba(0, 240, 255, 0.25),
-              inset 0 0 40px rgba(0, 200, 255, 0.15);
-  transform: translateY(-4px);
-}
-
-/* =========================================================
-   🔵 Boutons PFOTC – version unifiée “Bleu Horizon”
-   ========================================================= */
-
-.btn-primary,
-.btn-secondary {
-  display: inline-block;
-  font-weight: 600;
-  border: none;
-  border-radius: 0.75rem;
-  padding: 0.75rem 1.75rem;
-  color: #ffffff;
+/* Transitions et comportement fluide */
+* {
   transition: all 0.3s ease;
-  cursor: pointer;
+  scroll-behavior: smooth;
+}
+
+/* ------------------------------
+   2️⃣  HEADER
+------------------------------ */
+header {
+  background: rgba(11, 18, 32, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(0, 180, 255, 0.05);
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+/* Logo principal */
+header .logo {
   position: relative;
-  z-index: 1;
-
-  /* Fond principal : bleu horizon avec léger dégradé */
-  background: linear-gradient(90deg, #0052a5, #0078ff);
-  box-shadow:
-    0 0 25px rgba(0, 120, 255, 0.3),
-    inset 0 0 10px rgba(255, 255, 255, 0.08);
-  opacity: 0.97;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* 🌀 Survol : éclaircissement et effet de levitation */
-.btn-primary:hover,
-.btn-secondary:hover {
-  background: linear-gradient(90deg, #0080ff, #00bfff);
-  box-shadow:
-    0 0 45px rgba(0, 200, 255, 0.55),
-    0 0 80px rgba(0, 160, 255, 0.35),
-    inset 0 0 15px rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-}
-
-/* 🌤️ Halo diffus au sol sous les boutons */
-.btn-primary::after,
-.btn-secondary::after {
+header .logo::before {
   content: "";
   position: absolute;
+  inset: -15px;
+  background: radial-gradient(circle at center, rgba(0, 180, 255, 0.35), transparent 70%);
+  filter: blur(15px);
+  opacity: 0.8;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+header .logo:hover::before {
+  opacity: 1;
+}
+
+/* Image */
+header .logo img {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Texte PFOTC */
+header .logo h1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+header .logo p {
+  font-size: 0.8rem;
+  color: #9ccafc;
+  margin: 0;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: #c5d8f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-left: 2rem;
+  position: relative;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--pfotc-gradient);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ------------------------------
+   3️⃣  HERO SECTION
+------------------------------ */
+.hero {
+  text-align: center;
+  padding: 160px 20px 100px;
+  background: radial-gradient(ellipse at 50% 40%, #02204d 0%, #010e25 80%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
   left: 50%;
-  bottom: -8px;
   transform: translateX(-50%);
-  width: 85%;
-  height: 10px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 180, 255, 0.25) 0%,
-    rgba(0, 180, 255, 0.15) 40%,
-    transparent 100%
-  );
-  filter: blur(8px);
-  z-index: -1;
-  pointer-events: none;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 174, 255, 0.25), transparent 70%);
+  filter: blur(120px);
+  z-index: 0;
 }
 
-/* =========================================================
-   ✨ Animations
-   ========================================================= */
-
-/* Halo qui respire lentement (bas) */
-@keyframes horizonPulse {
-  0%, 100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
+/* Titre */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
 }
 
-/* Ligne lumineuse subtilement mouvante */
-@keyframes lineFlow {
-  0%, 100% {
-    opacity: 0.7;
-    transform: translateY(0);
-    filter: blur(0px);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-1px);
-    filter: blur(1px);
-  }
-}
-
-/* Animation du halo central (hero) */
-@keyframes heroPulse {
-  0%, 100% {
-    opacity: 0.85;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.04);
-  }
-}
-
-/* =========================================================
-   🌐 Utilitaires additionnels
-   ========================================================= */
-
-.animate-pulse-slow {
-  animation: horizonPulse 14s ease-in-out infinite;
-}
-
-.text-gradient {
-  background: linear-gradient(90deg, #00e0ff, #0070f3);
+.hero h1 span {
+  background: var(--pfotc-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* =========================================================
-   🧭 Fin du globals.css PFOTC
-   ========================================================= */
+/* Texte */
+.hero p {
+  font-size: 1.1rem;
+  color: #a6c5f9;
+  margin-top: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Boutons */
+.hero .btn {
+  display: inline-block;
+  margin: 1.8rem 0.5rem 0;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  background: var(--pfotc-gradient);
+  box-shadow: 0 4px 20px rgba(0, 180, 255, 0.25);
+}
+
+.hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 200, 255, 0.35);
+}
+
+/* ------------------------------
+   4️⃣  CARTES SERVICES
+------------------------------ */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background: rgba(10, 20, 40, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  width: 340px;
+  padding: 1.8rem;
+  box-shadow: 0 10px 25px rgba(0, 80, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 180, 255, 0.2);
+}
+
+.card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #bcd3f8;
+}
+
+/* ------------------------------
+   5️⃣  FOOTER
+------------------------------ */
+footer {
+  background: linear-gradient(180deg, #041226 0%, #010a16 100%);
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.85rem;
+  color: #7ea5dc;
+}
+
+/* ------------------------------
+   6️⃣  ANIMATIONS
+------------------------------ */
+@keyframes pulse-halo {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-halo {
+  animation: pulse-halo 6s ease-in-out infinite;
+}
+
+/* ------------------------------
+   7️⃣  RESPONSIVE DESIGN
+------------------------------ */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  header {
+    height: 64px;
+    padding: 0 1rem;
+  }
+
+  header .logo img {
+    width: 42px;
+    height: 42px;
+  }
+
+  header .logo h1 {
+    font-size: 1rem;
+  }
+
+  header .logo p {
+    font-size: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cards {
+    gap: 1.5rem;
+  }
+
+  .card {
+    width: 300px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  header {
+    height: 60px;
+    padding: 0 1rem;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .logo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo h1 {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    padding: 120px 20px 80px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  footer {
+    font-size: 0.75rem;
+  }
+}
+
+/* Très petits écrans (≤ 480px) */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .card {
+    width: 95%;
+  }
+}
