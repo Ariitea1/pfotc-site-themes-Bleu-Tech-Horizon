@@ -21,23 +21,30 @@ body {
 }
 
 /* =========================================================
-   🌌 Horizon & Halo Lumineux PFOTC
+   🌌 Horizon lumineux intensifié
    ========================================================= */
 .horizon {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 220px;
-  background: linear-gradient(
-    to top,
-    rgba(0, 200, 255, 0.35) 0%,
-    rgba(0, 140, 255, 0.25) 35%,
-    rgba(0, 60, 120, 0.15) 70%,
-    transparent 100%
+  height: 240px;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 220, 255, 0.45) 0%,   /* cœur lumineux cyan */
+      rgba(0, 180, 255, 0.25) 25%,  /* diffusion douce */
+      rgba(0, 90, 160, 0.1) 55%,    /* transition bleue */
+      rgba(0, 30, 80, 0.05) 75%,    /* fondu */
+      transparent 100%
+  ),
+  linear-gradient(
+      to top,
+      rgba(0, 150, 255, 0.3) 0%,
+      rgba(0, 100, 200, 0.15) 50%,
+      transparent 100%
   );
-  filter: blur(50px);
-  opacity: 0.8;
+  filter: blur(45px);
+  opacity: 0.9;
   z-index: 0;
 }
 
@@ -46,23 +53,27 @@ body {
    ========================================================= */
 .card-pfotc {
   position: relative;
-  background: rgba(11, 18, 32, 0.45); /* Bleu OCC pur, légèrement translucide */
+  background: rgba(11, 18, 32, 0.42);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 200, 255, 0.15);
+  border: 1px solid rgba(0, 220, 255, 0.15);
   border-radius: 1rem;
-  box-shadow: 0 0 25px rgba(0, 200, 255, 0.08);
+  box-shadow:
+    0 0 25px rgba(0, 200, 255, 0.05),
+    0 -1px 15px rgba(0, 200, 255, 0.08) inset;
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
 .card-pfotc:hover {
-  background: rgba(11, 18, 32, 0.55);
-  box-shadow: 0 0 35px rgba(0, 200, 255, 0.18);
+  background: rgba(11, 18, 32, 0.5);
+  box-shadow:
+    0 0 35px rgba(0, 200, 255, 0.15),
+    0 -2px 20px rgba(0, 200, 255, 0.12) inset;
   transform: translateY(-3px);
 }
 
 /* =========================================================
-   🔵 Boutons PFOTC (verre bleu lumineux)
+   🔵 Boutons PFOTC – version OCC unifiée
    ========================================================= */
 .btn-pfotc {
   display: inline-block;
@@ -79,12 +90,12 @@ body {
 
 .btn-pfotc:hover {
   background: rgba(0, 200, 255, 0.25);
-  box-shadow: 0 0 30px rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.18);
   transform: translateY(-2px);
 }
 
 /* =========================================================
-   ✴️ Effets de texte & animations
+   ✴️ Texte & dégradés
    ========================================================= */
 .text-gradient {
   background: linear-gradient(90deg, #00e0ff, #0070f3);
@@ -93,7 +104,7 @@ body {
 }
 
 /* =========================================================
-   ⚡ Petites utilités globales PFOTC
+   🧭 Utilitaires PFOTC
    ========================================================= */
 .shadow-halo {
   box-shadow: 0 0 60px rgba(0, 240, 255, 0.25);
@@ -105,5 +116,5 @@ body {
 }
 
 /* =========================================================
-   🧭 Fin du globals.css PFOTC (bleu OCC stable)
+   🧭 Fin du globals.css PFOTC – Horizon Lumineux renforcé
    ========================================================= */
