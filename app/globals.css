@@ -21,59 +21,89 @@ body {
 }
 
 /* =========================================================
-   🌌 Horizon lumineux intensifié
+   🌌 Horizon & Halo Lumineux PFOTC
    ========================================================= */
 .horizon {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 240px;
-  background: radial-gradient(
-      ellipse at center,
-      rgba(0, 220, 255, 0.45) 0%,   /* cœur lumineux cyan */
-      rgba(0, 180, 255, 0.25) 25%,  /* diffusion douce */
-      rgba(0, 90, 160, 0.1) 55%,    /* transition bleue */
-      rgba(0, 30, 80, 0.05) 75%,    /* fondu */
-      transparent 100%
-  ),
-  linear-gradient(
-      to top,
-      rgba(0, 150, 255, 0.3) 0%,
-      rgba(0, 100, 200, 0.15) 50%,
-      transparent 100%
+  height: 220px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 200, 255, 0.35) 0%,
+    rgba(0, 140, 255, 0.25) 35%,
+    rgba(0, 60, 120, 0.15) 70%,
+    transparent 100%
   );
-  filter: blur(45px);
-  opacity: 0.9;
+  filter: blur(50px);
+  opacity: 0.8;
+  animation: horizonPulse 14s ease-in-out infinite;
   z-index: 0;
 }
 
+@keyframes horizonPulse {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+  }
+}
+
 /* =========================================================
-   💠 Cartes translucides OCC BLEU STABLE
+   💠 Cartes translucides "OCC Glass Effect"
    ========================================================= */
 .card-pfotc {
   position: relative;
-  background: rgba(11, 18, 32, 0.42);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 220, 255, 0.15);
+  background: rgba(11, 18, 32, 0.35); /* plus transparent */
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 200, 255, 0.12);
   border-radius: 1rem;
-  box-shadow:
-    0 0 25px rgba(0, 200, 255, 0.05),
-    0 -1px 15px rgba(0, 200, 255, 0.08) inset;
-  transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.06);
+  transition: all 0.4s ease;
   overflow: hidden;
 }
 
 .card-pfotc:hover {
-  background: rgba(11, 18, 32, 0.5);
-  box-shadow:
-    0 0 35px rgba(0, 200, 255, 0.15),
-    0 -2px 20px rgba(0, 200, 255, 0.12) inset;
+  background: rgba(11, 18, 32, 0.45);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.15);
   transform: translateY(-3px);
 }
 
+/* 🌫 Reflet animé subtil sur les cartes */
+.card-pfotc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(0, 200, 255, 0.12) 50%,
+    transparent 100%
+  );
+  animation: lightSweep 15s linear infinite;
+}
+
+@keyframes lightSweep {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 120%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
 /* =========================================================
-   🔵 Boutons PFOTC – version OCC unifiée
+   🔵 Boutons PFOTC (verre bleu lumineux)
    ========================================================= */
 .btn-pfotc {
   display: inline-block;
@@ -85,17 +115,17 @@ body {
   font-weight: 500;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .btn-pfotc:hover {
   background: rgba(0, 200, 255, 0.25);
-  box-shadow: 0 0 30px rgba(0, 200, 255, 0.18);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.2);
   transform: translateY(-2px);
 }
 
 /* =========================================================
-   ✴️ Texte & dégradés
+   ✴️ Effets de texte & animations
    ========================================================= */
 .text-gradient {
   background: linear-gradient(90deg, #00e0ff, #0070f3);
@@ -103,8 +133,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.animate-pulse-slow {
+  animation: horizonPulse 14s ease-in-out infinite;
+}
+
 /* =========================================================
-   🧭 Utilitaires PFOTC
+   ⚡ Petites utilités globales PFOTC
    ========================================================= */
 .shadow-halo {
   box-shadow: 0 0 60px rgba(0, 240, 255, 0.25);
@@ -116,5 +150,5 @@ body {
 }
 
 /* =========================================================
-   🧭 Fin du globals.css PFOTC – Horizon Lumineux renforcé
+   🧭 Fin du globals.css PFOTC
    ========================================================= */
