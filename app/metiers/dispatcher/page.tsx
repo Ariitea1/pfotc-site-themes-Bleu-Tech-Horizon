@@ -4,8 +4,8 @@ export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
       {/* === HERO OCC === */}
-      <section className="relative w-full h-[85vh] overflow-hidden">
-        {/* ✅ Image OCC parfaitement visible */}
+      <section className="relative w-full h-[100vh] overflow-hidden">
+        {/* Image OCC */}
         <img
           src="/images/fd_occ_pfctc.png"
           alt="Flight Dispatcher OCC"
@@ -13,20 +13,10 @@ export default function DispatcherPage() {
         />
 
         {/* Dégradé horizon PFOTC */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 via-cyan-800/30 to-purple-900/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-cyan-800/20 to-purple-900/40 z-10" />
 
         {/* Halo lumineux */}
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse z-10" />
-
-        {/* Contenu texte au-dessus */}
-        <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-lg bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 transition-all duration-700">
-            Flight Dispatcher
-          </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-2xl text-blue-100">
-            Au cœur du centre des opérations – l’intelligence du vol sous l’horizon du Pacifique.
-          </p>
-        </div>
       </section>
 
       {/* --- Contenu principal --- */}
