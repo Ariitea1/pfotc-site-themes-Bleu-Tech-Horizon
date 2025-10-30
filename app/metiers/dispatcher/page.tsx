@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 
 export default function DispatcherPage() {
@@ -8,7 +7,7 @@ export default function DispatcherPage() {
       {/* === HERO IMMERSIF PFOTC === */}
       <section className="relative w-full h-[85vh] overflow-hidden">
         <Image
-          src="images/fd_occ_pfctc.png" // ✅ chemin corrigé
+          src="images/fd_occ_pfctc.png"        // ✅ ton image dans /public/images
           alt="Flight Dispatcher OCC"
           fill
           className="object-cover brightness-95"
@@ -17,7 +16,6 @@ export default function DispatcherPage() {
 
         {/* Dégradé horizon PFOTC */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-cyan-800/40 to-purple-900/60" />
-
         {/* Halo lumineux */}
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
 
@@ -26,14 +24,13 @@ export default function DispatcherPage() {
           <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-lg bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 transition-all duration-700">
             Flight Dispatcher
           </h1>
-
           <p className="mt-6 text-lg md:text-xl max-w-2xl text-blue-100 transition-opacity duration-700 delay-200">
             Au cœur du centre des opérations – l’intelligence du vol sous l’horizon du Pacifique.
           </p>
         </div>
       </section>
 
-      {/* --- Effet horizon lumineux (liseré PFOTC) --- */}
+      {/* --- Effet horizon lumineux --- */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
@@ -60,22 +57,18 @@ export default function DispatcherPage() {
         </h1>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
-          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong>
-          <br />
+          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong><br />
           Le Flight Dispatcher (ou Agent d’Opérations Aériennes) est la{" "}
-          <span className="text-cyan-400 font-medium">sentinelle des opérations</span>.
-          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion,
-          le routing et les performances afin d’élaborer un plan de vol sûr, économique
-          et conforme à la réglementation.
+          <span className="text-cyan-400 font-medium">sentinelle des opérations</span>. Avant chaque vol, il
+          analyse la météo, les NOTAMs, la configuration avion, le routing et les performances afin d’élaborer
+          un plan de vol sûr, économique et conforme à la réglementation.
         </p>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
           En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO),
-          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque
-          mission aérienne.
+          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque mission aérienne.
         </p>
 
-        {/* 🔹 Liste des responsabilités principales */}
         <ul className="list-disc pl-6 text-blue-200 space-y-2 mb-6">
           <li>Planification des routes, carburant et alternates</li>
           <li>Analyse météo et NOTAM en temps réel</li>
@@ -84,17 +77,15 @@ export default function DispatcherPage() {
         </ul>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
-          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur
-          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que
-          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures
-          conditions de vol.
+          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur réglementaire et sens
+          de la décision. Dans le silence des salles OCC, il veille — pour que chaque décollage se fasse en toute sécurité
+          et que chaque équipage dispose des meilleures conditions de vol.
         </p>
 
         <blockquote className="mt-10 text-cyan-400 text-lg italic border-l-4 border-cyan-400 pl-4">
           PFOTC forme ces femmes et ces hommes de l’ombre, garants du ciel et du lien entre la terre et le vol.
         </blockquote>
 
-        {/* --- Footer mini --- */}
         <footer className="mt-20 text-sm text-gray-500 text-center">
           © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
         </footer>
