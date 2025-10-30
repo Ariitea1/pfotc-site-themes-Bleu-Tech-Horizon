@@ -1,17 +1,15 @@
 "use client";
-import Image from "next/image";
 
 export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
-      {/* === HERO IMMERSIF PFOTC (avec image OCC intégrée) === */}
+      {/* === HERO IMMERSIF PFOTC === */}
       <section className="relative w-full h-[85vh] overflow-hidden">
-        <Image
-          src="/images/fd_occ_pfctc.png" // ✅ ton image avec texte intégré
+        {/* ✅ Image OCC intégrée (avec texte inclus dans l’image) */}
+        <img
+          src="/images/fd_occ_pfctc.png"
           alt="Flight Dispatcher OCC"
-          fill
-          className="object-cover brightness-95"
-          priority
+          className="absolute inset-0 w-full h-full object-cover brightness-95"
         />
 
         {/* Dégradé horizon PFOTC pour effet lumineux */}
