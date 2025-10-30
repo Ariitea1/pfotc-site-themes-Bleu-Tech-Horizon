@@ -1,8 +1,45 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Image from "next/image";
+
 export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
+      {/* === HERO IMMERSIF PFOTC === */}
+      <section className="relative w-full h-[85vh] overflow-hidden">
+        <Image
+          src="/images/fd_occ_pfctc.png" // 🔁 remplace par ton image
+          alt="Flight Dispatcher OCC"
+          fill
+          className="object-cover brightness-75"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-cyan-800/40 to-purple-900/60" />
+        <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
+
+        {/* Texte principal sur l’image */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-6xl font-extrabold drop-shadow-lg bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20"
+          >
+            Flight Dispatcher
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            className="mt-6 text-lg md:text-xl max-w-2xl text-blue-100"
+          >
+            Au cœur du centre des opérations – l’intelligence du vol sous l’horizon du Pacifique.
+          </motion.p>
+        </div>
+      </section>
+
       {/* --- Effet horizon lumineux --- */}
       <div
         aria-hidden
@@ -30,25 +67,33 @@ export default function DispatcherPage() {
         </h1>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
-          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong> 
+          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong>
           <br />
           Le Flight Dispatcher (ou Agent d’Opérations Aériennes) est la{" "}
           <span className="text-cyan-400 font-medium">sentinelle des opérations</span>.
-          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion, 
-          le routing et les performances afin d’élaborer un plan de vol sûr, économique 
+          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion,
+          le routing et les performances afin d’élaborer un plan de vol sûr, économique
           et conforme à la réglementation.
         </p>
 
         <p className="text-gray-300 mb-6 leading-relaxed">
-          En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO), 
-          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque 
+          En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO),
+          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque
           mission aérienne.
         </p>
 
+        {/* 🔹 Liste des responsabilités principales */}
+        <ul className="list-disc pl-6 text-blue-200 space-y-2 mb-6">
+          <li>Planification des routes, carburant et alternates</li>
+          <li>Analyse météo et NOTAM en temps réel</li>
+          <li>Suivi de vol et communication équipage/OCC</li>
+          <li>Coordination interservices (maintenance, handling, ATC)</li>
+        </ul>
+
         <p className="text-gray-300 mb-6 leading-relaxed">
-          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur 
-          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que 
-          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures 
+          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur
+          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que
+          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures
           conditions de vol.
         </p>
 
