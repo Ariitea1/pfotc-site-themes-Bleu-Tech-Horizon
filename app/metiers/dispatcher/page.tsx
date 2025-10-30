@@ -1,28 +1,26 @@
 "use client";
-
 import { motion } from "framer-motion";
 
 export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
-      {/* === HERO OCC === */}
       <section className="relative w-full h-[100vh] overflow-hidden flex items-center justify-center text-center px-8">
-        {/* Image de fond */}
+        {/* === IMAGE DE FOND === */}
         <img
           src="/images/fd_occ_pfctc.png"
           alt="Flight Dispatcher OCC"
           className="absolute inset-0 w-full h-full object-cover brightness-95 z-0"
         />
 
-        {/* Dégradé pour contraste */}
+        {/* === DÉGRADÉ DE CONTRASTE === */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#071021]/60 via-[#071021]/30 to-[#071021]/70 z-10" />
 
-        {/* Texte principal avec animation */}
+        {/* === TEXTE ANIMÉ === */}
         <motion.div
           className="relative z-20 max-w-5xl mx-auto leading-relaxed text-blue-100 space-y-6 drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
         >
           <motion.h2
             className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent tracking-wide"
@@ -40,7 +38,7 @@ export default function DispatcherPage() {
             transition={{ delay: 0.7, duration: 1.2 }}
           >
             Le <span className="text-cyan-400 font-semibold">Flight Dispatcher</span> (ou Agent
-            d’Opérations Aériennes) est la{" "}
+            d’Opérations Aériennes) est la{' '}
             <span className="text-cyan-300 font-medium">sentinelle des opérations</span>. Avant
             chaque vol, il analyse la météo, les NOTAMs, la configuration avion, le routing et les
             performances afin d’élaborer un plan de vol sûr, économique et conforme à la
@@ -83,7 +81,7 @@ export default function DispatcherPage() {
         </motion.div>
       </section>
 
-      {/* Footer mini */}
+      {/* === FOOTER === */}
       <footer className="relative z-10 mt-20 text-sm text-gray-500 text-center pb-10">
         © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
       </footer>
