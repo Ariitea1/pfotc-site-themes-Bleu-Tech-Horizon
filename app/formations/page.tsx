@@ -1,79 +1,25 @@
 "use client";
 
-import Link from "next/link";
-
-export default function FormationsPage() {
-  const formations = [
-    {
-      icon: "✈️",
-      title: "Flight Dispatcher",
-      hours: "40–80 h",
-      description: [
-        "Planification & NOTAM",
-        "Météo, perf & ETOPS",
-        "Surveillance vol & OCC",
-      ],
-      linkMetier: "/metiers/dispatcher",
-      inscription: "/inscription?formation=dispatcher",
-      programme: "/formations/dispatcher",
-    },
-    {
-      icon: "🧮",
-      title: "Agent de Trafic",
-      hours: "24–40 h",
-      description: [
-        "Loadsheet & masses",
-        "Équilibrage & sécurité",
-        "Optimisation opérationnelle",
-      ],
-      linkMetier: "/metiers/agent-trafic",
-      inscription: "/inscription?formation=agent-trafic",
-      programme: "/formations/loadsheets",
-    },
-    {
-      icon: "🧍‍♂️",
-      title: "Agent d’Escale",
-      hours: "20–30 h",
-      description: [
-        "Accueil & procédures passagers",
-        "Coordination sol / vol",
-        "Gestion embarquement & ponctualité",
-      ],
-      linkMetier: "/metiers/agent-escale",
-      inscription: "/inscription?formation=agent-escale",
-      programme: "/formations/escale",
-    },
-    {
-      icon: "🦺",
-      title: "Superviseur de Piste",
-      hours: "24–36 h",
-      description: [
-        "Sécurité & coordination piste",
-        "Brief & supervision départ",
-        "Interface OCC / équipes terrain",
-      ],
-      linkMetier: "/metiers/superviseur-piste",
-      inscription: "/inscription?formation=superviseur-piste",
-      programme: "/formations/piste",
-    },
-    {
-      icon: "📡",
-      title: "OCC Management",
-      hours: "24–60 h",
-      description: [
-        "Process & tools",
-        "Gestion aléas",
-        "CBTA & reporting",
-      ],
-      linkMetier: "/metiers/coordinateur",
-      inscription: "/inscription?formation=occ",
-      programme: "/formations/occ",
-    },
-  ];
-
+export default function DispatcherPage() {
   return (
     <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
-      {/* --- Effet horizon --- */}
+      {/* === HERO IMMERSIF PFOTC === */}
+      <section className="relative w-full h-[85vh] overflow-hidden">
+        {/* ✅ Image OCC en lien absolu (affichage garanti) */}
+        <img
+          src="https://pfotc-site-themes-bleu-tech-horizon-njec3t9ed-ariiteas-projects.vercel.app/images/fd_occ_pfctc.png"
+          alt="Flight Dispatcher OCC"
+          className="absolute inset-0 w-full h-full object-cover brightness-95"
+        />
+
+        {/* Dégradé horizon PFOTC */}
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-cyan-800/20 to-purple-900/40" />
+
+        {/* Halo lumineux */}
+        <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
+      </section>
+
+      {/* --- Effet horizon lumineux (liseré PFOTC) --- */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
@@ -94,69 +40,41 @@ export default function FormationsPage() {
       />
 
       {/* --- Contenu principal --- */}
-      <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
-        <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">
-            Formations PFOTC
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Des formations conçues pour développer les compétences clés des
-            opérations aériennes dans le Pacifique — alliant rigueur technique,
-            approche CBTA et expertise terrain.
-          </p>
-        </header>
+      <div className="relative z-10 px-6 py-24 max-w-5xl mx-auto">
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong>
+          <br />
+          Le Flight Dispatcher (ou Agent d’Opérations Aériennes) est la{" "}
+          <span className="text-cyan-400 font-medium">sentinelle des opérations</span>.
+          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion,
+          le routing et les performances afin d’élaborer un plan de vol sûr, économique
+          et conforme à la réglementation.
+        </p>
 
-        {/* --- Cartes de formations --- */}
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12">
-          {formations.map((f) => (
-            <div
-              key={f.title}
-              className="card-pfotc p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:ring-1 hover:ring-cyan-400 transition flex flex-col justify-between"
-            >
-              <div>
-                <div className="flex items-start justify-between mb-2">
-                  <span className="text-2xl">{f.icon}</span>
-                  <span className="text-sm text-gray-400">{f.hours}</span>
-                </div>
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO),
+          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque
+          mission aérienne.
+        </p>
 
-                {/* --- Titre cliquable avec "?" --- */}
-                <Link
-                  href={f.linkMetier}
-                  className="inline-flex items-center gap-1 text-lg font-semibold text-white hover:text-cyan-400 transition"
-                  title={`Découvrir le métier : ${f.title}`}
-                >
-                  {f.title}
-                  <span className="text-cyan-400 font-bold text-xl leading-none">
-                    ?
-                  </span>
-                </Link>
+        <ul className="list-disc pl-6 text-blue-200 space-y-2 mb-6">
+          <li>Planification des routes, carburant et alternates</li>
+          <li>Analyse météo et NOTAM en temps réel</li>
+          <li>Suivi de vol et communication équipage/OCC</li>
+          <li>Coordination interservices (maintenance, handling, ATC)</li>
+        </ul>
 
-                <ul className="mt-3 space-y-1 text-sm text-slate-300 list-disc list-inside">
-                  {f.description.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+        <p className="text-gray-300 mb-6 leading-relaxed">
+          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur
+          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que
+          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures
+          conditions de vol.
+        </p>
 
-              <div className="mt-6 flex gap-3">
-                <a
-                  href={f.inscription}
-                  className="px-4 py-2 rounded-xl bg-cyan-500 text-[#0b1220] text-sm font-medium hover:bg-cyan-400 transition"
-                >
-                  S’inscrire
-                </a>
-                <a
-                  href={f.programme}
-                  className="px-4 py-2 rounded-xl border border-white/15 text-sm hover:bg-white/5 transition"
-                >
-                  Programme
-                </a>
-              </div>
-            </div>
-          ))}
-        </section>
+        <blockquote className="mt-10 text-cyan-400 text-lg italic border-l-4 border-cyan-400 pl-4">
+          PFOTC forme ces femmes et ces hommes de l’ombre, garants du ciel et du lien entre la terre et le vol.
+        </blockquote>
 
-        {/* --- Footer mini --- */}
         <footer className="mt-20 text-sm text-gray-500 text-center">
           © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
         </footer>
