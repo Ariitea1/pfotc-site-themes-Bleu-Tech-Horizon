@@ -1,84 +1,99 @@
 "use client";
 
-export default function DispatcherPage() {
+import Link from "next/link";
+
+export default function FormationsPage() {
+  const formations = [
+    {
+      icon: "✈️",
+      title: "Flight Dispatcher",
+      hours: "40–80 h",
+      description: [
+        "Planification & NOTAM",
+        "Météo, perf & ETOPS",
+        "Surveillance vol & OCC",
+      ],
+      linkMetier: "/metiers/dispatcher",
+      inscription: "/inscription?formation=dispatcher",
+      programme: "/formations/dispatcher",
+    },
+    {
+      icon: "🧳",
+      title: "Loadsheet & Masses",
+      hours: "24–40 h",
+      description: [
+        "Trim sheet avancé",
+        "ATR72 – cas pratiques",
+        "Conformité & audits",
+      ],
+      linkMetier: "/metiers/agent-trafic",
+      inscription: "/inscription?formation=loadsheet",
+      programme: "/formations/loadsheet",
+    },
+    {
+      icon: "🛰️",
+      title: "OCC & Supervision",
+      hours: "30–60 h",
+      description: [
+        "Coordination des opérations",
+        "Gestion des aléas",
+        "Leadership & décision",
+      ],
+      linkMetier: "/metiers/coordinateur",
+      inscription: "/inscription?formation=occ",
+      programme: "/formations/occ",
+    },
+  ];
+
   return (
-    <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
-      {/* === HERO IMMERSIF PFOTC === */}
-      <section className="relative w-full h-[85vh] overflow-hidden">
-        {/* ✅ Image OCC en lien absolu (affichage garanti) */}
-        <img
-          src="https://pfotc-site-themes-bleu-tech-horizon-njec3t9ed-ariiteas-projects.vercel.app/images/fd_occ_pfctc.png"
-          alt="Flight Dispatcher OCC"
-          className="absolute inset-0 w-full h-full object-cover brightness-95"
-        />
+    <main className="min-h-screen bg-[#071021] text-white py-24 px-6">
+      <h1 className="text-center text-4xl md:text-5xl font-bold text-cyan-400 mb-12">
+        Formations PFOTC
+      </h1>
 
-        {/* Dégradé horizon PFOTC */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/40 via-cyan-800/20 to-purple-900/40" />
-
-        {/* Halo lumineux */}
-        <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
-      </section>
-
-      {/* --- Effet horizon lumineux (liseré PFOTC) --- */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(1200px 300px at 50% 65%, rgba(0,160,255,.25), rgba(0,160,255,0) 60%), linear-gradient(#0d1a2b, #071021 35%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-0 right-0 z-0"
-        style={{
-          top: "56%",
-          height: "2px",
-          boxShadow: "0 0 18px rgba(0,180,255,.7)",
-          background: "rgba(0,180,255,.35)",
-        }}
-      />
-
-      {/* --- Contenu principal --- */}
-      <div className="relative z-10 px-6 py-24 max-w-5xl mx-auto">
-        <p className="text-gray-300 mb-6 leading-relaxed">
-          <strong>Dans l’ombre des opérations, ils calculent, anticipent et coordonnent.</strong>
-          <br />
-          Le Flight Dispatcher (ou Agent d’Opérations Aériennes) est la{" "}
-          <span className="text-cyan-400 font-medium">sentinelle des opérations</span>.
-          Avant chaque vol, il analyse la météo, les NOTAMs, la configuration avion,
-          le routing et les performances afin d’élaborer un plan de vol sûr, économique
-          et conforme à la réglementation.
-        </p>
-
-        <p className="text-gray-300 mb-6 leading-relaxed">
-          En coordination permanente avec les équipages et le Centre de Contrôle des Opérations (CCO),
-          il assure la continuité des opérations, anticipe les aléas et garantit la cohérence de chaque
-          mission aérienne.
-        </p>
-
-        <ul className="list-disc pl-6 text-blue-200 space-y-2 mb-6">
-          <li>Planification des routes, carburant et alternates</li>
-          <li>Analyse météo et NOTAM en temps réel</li>
-          <li>Suivi de vol et communication équipage/OCC</li>
-          <li>Coordination interservices (maintenance, handling, ATC)</li>
-        </ul>
-
-        <p className="text-gray-300 mb-6 leading-relaxed">
-          Véritable chef d’orchestre des opérations sol/vol, il conjugue expertise technique, rigueur
-          réglementaire et sens de la décision. Dans le silence des salles OCC, il veille — pour que
-          chaque décollage se fasse en toute sécurité et que chaque équipage dispose des meilleures
-          conditions de vol.
-        </p>
-
-        <blockquote className="mt-10 text-cyan-400 text-lg italic border-l-4 border-cyan-400 pl-4">
-          PFOTC forme ces femmes et ces hommes de l’ombre, garants du ciel et du lien entre la terre et le vol.
-        </blockquote>
-
-        <footer className="mt-20 text-sm text-gray-500 text-center">
-          © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
-        </footer>
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        {formations.map((formation) => (
+          <div
+            key={formation.title}
+            className="bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-md hover:scale-[1.02] transition-transform shadow-lg"
+          >
+            <div className="text-5xl mb-4">{formation.icon}</div>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-2">
+              {formation.title}
+            </h2>
+            <p className="text-gray-400 text-sm mb-4">{formation.hours}</p>
+            <ul className="text-gray-300 mb-6 space-y-1 list-disc list-inside">
+              {formation.description.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+            <div className="flex flex-col gap-2">
+              <Link
+                href={formation.linkMetier}
+                className="text-cyan-400 hover:underline"
+              >
+                Métier associé →
+              </Link>
+              <Link
+                href={formation.programme}
+                className="text-blue-300 hover:underline"
+              >
+                Programme détaillé →
+              </Link>
+              <Link
+                href={formation.inscription}
+                className="mt-2 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-xl text-center transition-colors"
+              >
+                S’inscrire
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
+
+      <footer className="mt-20 text-sm text-gray-500 text-center">
+        © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
+      </footer>
     </main>
   );
 }
