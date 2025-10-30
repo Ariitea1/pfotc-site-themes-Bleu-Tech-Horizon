@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function DispatcherPage() {
@@ -20,23 +19,13 @@ export default function DispatcherPage() {
 
         {/* Texte principal sur l’image */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl md:text-6xl font-extrabold drop-shadow-lg bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20"
-          >
+          <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-lg bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20 transition-all duration-700">
             Flight Dispatcher
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 1 }}
-            className="mt-6 text-lg md:text-xl max-w-2xl text-blue-100"
-          >
+          <p className="mt-6 text-lg md:text-xl max-w-2xl text-blue-100 transition-opacity duration-700 delay-200">
             Au cœur du centre des opérations – l’intelligence du vol sous l’horizon du Pacifique.
-          </motion.p>
+          </p>
         </div>
       </section>
 
