@@ -8,14 +8,16 @@ export default function DispatcherPage() {
       {/* === HERO IMMERSIF PFOTC === */}
       <section className="relative w-full h-[85vh] overflow-hidden">
         <Image
-          src="/images/fd_occ_pfctc.png" // 🔁 Mets ici ton image dans /public/images/
+          src="/images/fd_occ_pfctc.png" // 🔁 Image dans /public/images/
           alt="Flight Dispatcher OCC"
           fill
-          className="object-cover brightness-75"
+          className="object-cover brightness-80"
           priority
         />
+
         {/* Dégradé horizon PFOTC */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/60 via-cyan-800/40 to-purple-900/60" />
+
         {/* Halo lumineux */}
         <div className="absolute -bottom-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl animate-pulse" />
 
@@ -31,7 +33,7 @@ export default function DispatcherPage() {
         </div>
       </section>
 
-      {/* --- Effet horizon lumineux --- */}
+      {/* --- Effet horizon lumineux (liseré PFOTC) --- */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 z-0"
