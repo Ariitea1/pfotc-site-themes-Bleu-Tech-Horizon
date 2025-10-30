@@ -8,7 +8,7 @@ export default function DispatcherPage() {
       {/* === HERO IMMERSIF PFOTC === */}
       <section className="relative w-full h-[85vh] overflow-hidden">
         <Image
-          src="/images/fd_occ_pfctc.png" // 🔁 Image dans /public/images/
+          src="/images/fd_occ_pfctc.png" // 🔁 ton image dans /public/images/
           alt="Flight Dispatcher OCC"
           fill
           className="object-cover brightness-80"
