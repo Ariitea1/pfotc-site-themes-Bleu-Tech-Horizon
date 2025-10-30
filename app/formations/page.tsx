@@ -18,132 +18,145 @@ export default function FormationsPage() {
       programme: "/formations/dispatcher",
     },
     {
-      icon: "🧳",
-      title: "Loadsheet & Masses",
+      icon: "🧮",
+      title: "Agent de Trafic",
       hours: "24–40 h",
       description: [
-        "Trim sheet avancé",
-        "ATR72 – cas pratiques",
-        "Conformité & audits",
+        "Loadsheet & masses",
+        "Équilibrage & sécurité",
+        "Optimisation opérationnelle",
       ],
       linkMetier: "/metiers/agent-trafic",
-      inscription: "/inscription?formation=loadsheet",
-      programme: "/formations/loadsheet",
+      inscription: "/inscription?formation=agent-trafic",
+      programme: "/formations/loadsheets",
     },
     {
-      icon: "🛰️",
-      title: "OCC & Supervision",
-      hours: "30–60 h",
+      icon: "🧍‍♂️",
+      title: "Agent d’Escale",
+      hours: "20–30 h",
       description: [
-        "Coordination des opérations",
-        "Gestion des aléas",
-        "Leadership & décision",
+        "Accueil & procédures passagers",
+        "Coordination sol / vol",
+        "Gestion embarquement & ponctualité",
+      ],
+      linkMetier: "/metiers/agent-escale",
+      inscription: "/inscription?formation=agent-escale",
+      programme: "/formations/escale",
+    },
+    {
+      icon: "🦺",
+      title: "Superviseur de Piste",
+      hours: "24–36 h",
+      description: [
+        "Sécurité & coordination piste",
+        "Brief & supervision départ",
+        "Interface OCC / équipes terrain",
+      ],
+      linkMetier: "/metiers/superviseur-piste",
+      inscription: "/inscription?formation=superviseur-piste",
+      programme: "/formations/piste",
+    },
+    {
+      icon: "📡",
+      title: "OCC Management",
+      hours: "24–60 h",
+      description: [
+        "Process & tools",
+        "Gestion aléas",
+        "CBTA & reporting",
       ],
       linkMetier: "/metiers/coordinateur",
       inscription: "/inscription?formation=occ",
       programme: "/formations/occ",
     },
-    {
-      icon: "🛫",
-      title: "Agent Trafic",
-      hours: "24–40 h",
-      description: [
-        "Traitement au sol",
-        "Manutention et coordination",
-        "Documents de vol et sécurité",
-      ],
-      linkMetier: "/metiers/agent-trafic",
-      inscription: "/inscription?formation=agent-trafic",
-      programme: "/formations/agent-trafic",
-    },
-    {
-      icon: "👩‍✈️",
-      title: "Cabin Crew (PNC)",
-      hours: "60–100 h",
-      description: [
-        "Sûreté & évacuation",
-        "Secours et gestion de cabine",
-        "Service et relation passager",
-      ],
-      linkMetier: "/metiers/pnc",
-      inscription: "/inscription?formation=pnc",
-      programme: "/formations/pnc",
-    },
   ];
 
   return (
-    <main className="relative min-h-screen bg-[#071021] text-white overflow-hidden">
-      {/* Halo PFOTC */}
+    <main className="relative overflow-hidden bg-[#071021] text-white min-h-screen">
+      {/* --- Effet horizon --- */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
           background:
-            "radial-gradient(900px 400px at 50% 60%, rgba(0,160,255,0.25), transparent 70%), linear-gradient(#0b1629, #071021 40%)",
+            "radial-gradient(1200px 300px at 50% 65%, rgba(0,160,255,.25), rgba(0,160,255,0) 60%), linear-gradient(#0d1a2b, #071021 35%)",
         }}
       />
-
-      {/* Liseré lumineux */}
       <div
         aria-hidden
-        className="absolute left-0 right-0"
+        className="pointer-events-none absolute left-0 right-0 z-0"
         style={{
-          top: "55%",
+          top: "56%",
           height: "2px",
-          boxShadow: "0 0 16px rgba(0,180,255,0.6)",
-          background: "rgba(0,180,255,0.35)",
+          boxShadow: "0 0 18px rgba(0,180,255,.7)",
+          background: "rgba(0,180,255,.35)",
         }}
       />
 
+      {/* --- Contenu principal --- */}
       <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
-        <h1 className="text-center text-4xl md:text-5xl font-bold text-cyan-400 mb-12 drop-shadow-lg">
-          Formations PFOTC
-        </h1>
+        <header className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-cyan-400">
+            Formations PFOTC
+          </h1>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+            Des formations conçues pour développer les compétences clés des
+            opérations aériennes dans le Pacifique — alliant rigueur technique,
+            approche CBTA et expertise terrain.
+          </p>
+        </header>
 
-        {/* Grille des cartes */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {formations.map((formation) => (
+        {/* --- Cartes de formations --- */}
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-12">
+          {formations.map((f) => (
             <div
-              key={formation.title}
-              className="group relative bg-white/10 border border-white/20 rounded-2xl p-6 backdrop-blur-md shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.03] transition-all duration-500"
+              key={f.title}
+              className="card-pfotc p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:ring-1 hover:ring-cyan-400 transition flex flex-col justify-between"
             >
-              <div className="text-5xl mb-4 transition-transform duration-500 group-hover:scale-110">
-                {formation.icon}
+              <div>
+                <div className="flex items-start justify-between mb-2">
+                  <span className="text-2xl">{f.icon}</span>
+                  <span className="text-sm text-gray-400">{f.hours}</span>
+                </div>
+
+                {/* --- Titre cliquable avec "?" --- */}
+                <Link
+                  href={f.linkMetier}
+                  className="inline-flex items-center gap-1 text-lg font-semibold text-white hover:text-cyan-400 transition"
+                  title={`Découvrir le métier : ${f.title}`}
+                >
+                  {f.title}
+                  <span className="text-cyan-400 font-bold text-xl leading-none">
+                    ?
+                  </span>
+                </Link>
+
+                <ul className="mt-3 space-y-1 text-sm text-slate-300 list-disc list-inside">
+                  {f.description.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
-              <h2 className="text-2xl font-semibold text-cyan-400 mb-2">
-                {formation.title}
-              </h2>
-              <p className="text-gray-400 text-sm mb-4">{formation.hours}</p>
-              <ul className="text-gray-300 mb-6 space-y-1 list-disc list-inside">
-                {formation.description.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-2">
-                <Link
-                  href={formation.linkMetier}
-                  className="text-cyan-400 hover:underline"
-                >
-                  Métier associé →
-                </Link>
-                <Link
-                  href={formation.programme}
-                  className="text-blue-300 hover:underline"
-                >
-                  Programme détaillé →
-                </Link>
-                <Link
-                  href={formation.inscription}
-                  className="mt-2 inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-xl text-center transition-colors"
+
+              <div className="mt-6 flex gap-3">
+                <a
+                  href={f.inscription}
+                  className="px-4 py-2 rounded-xl bg-cyan-500 text-[#0b1220] text-sm font-medium hover:bg-cyan-400 transition"
                 >
                   S’inscrire
-                </Link>
+                </a>
+                <a
+                  href={f.programme}
+                  className="px-4 py-2 rounded-xl border border-white/15 text-sm hover:bg-white/5 transition"
+                >
+                  Programme
+                </a>
               </div>
             </div>
           ))}
-        </div>
+        </section>
 
-        {/* Footer */}
+        {/* --- Footer mini --- */}
         <footer className="mt-20 text-sm text-gray-500 text-center">
           © PFOTC — <span className="text-cyan-400">Pacific Hub Tahiti</span>
         </footer>
